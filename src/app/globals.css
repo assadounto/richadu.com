@@ -9,3 +9,84 @@
     text-wrap: balance;
   }
 }
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.font500 {
+  font-weight: 500;
+}
+
+.font300 {
+  font-weight: 300;
+}
+
+.font800 {
+  font-weight: 800;
+}
+
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+:root {
+  --grid-size: 30px;
+  --grid-strength: 1px;
+  --grid-dash: 10px;
+  --grid-gap: 5px;
+  --grid-color-light: #dddddd5b;
+  --paper-color-light: #fff;
+  --grid-color-dark: #3333335b;
+  --paper-color-dark: #222;
+}
+
+.light {
+  --grid-color: var(--grid-color-light);
+  --paper-color: var(--paper-color-light);
+}
+
+.dark {
+  --grid-color: var(--grid-color-dark);
+  --paper-color: var(--paper-color-dark);
+}
+
+.bg-solid {
+  background-color: var(--paper-color);
+  background-size: var(--grid-dash) var(--grid-dash), var(--grid-size) var(--grid-size);
+  background-image:
+    linear-gradient(to bottom, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)),
+    linear-gradient(to right, var(--grid-color) var(--grid-strength), transparent var(--grid-strength)),
+    linear-gradient(to right, transparent var(--grid-gap), var(--paper-color) var(--grid-gap)),
+    linear-gradient(to bottom, var(--grid-color) var(--grid-strength), transparent var(--grid-strength));
+}
+
+
+/* styles.css */
+
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+.intro {
+  background-image: url('/images/headershape.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-bottom-left-radius: 8re;
+}
