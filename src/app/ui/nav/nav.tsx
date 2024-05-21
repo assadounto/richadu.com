@@ -29,9 +29,9 @@ const NavBar: React.FC = () => {
             <div>
                 <ul className="flex items-center justify-end space-x-4">
                     {
-                        navLinks.map((navlink) => {
+                        navLinks.map((navlink,id) => {
                             return (
-                                <li>
+                                <li key={id}>
                                     <Link href={navlink.link} className="text-link dark:text-white  font500  hover:text-sky-500 dark:hover:text-sky-400">{navlink.lable}</Link>
                                 </li>
                             )

@@ -10,6 +10,7 @@ const ThemeToggle: React.FC = () => {
         <button
         name='Theme'
         role='option'
+        aria-selected
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             className="p-2"
         >

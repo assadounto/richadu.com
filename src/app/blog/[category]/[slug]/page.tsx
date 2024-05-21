@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     return (
         <>
         <Head>
-        <title>{post.title} | Richmond's Blog</title>
+          <title>{post.title} | Richmond&apos;s Blog</title>
         <meta name="description" content={post.description} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.description} />

@@ -9,9 +9,9 @@ const About: React.FC = () => {
             <div className="mb-8">
                 <h2 className="text-3xl font-bold mb-4">About Myself</h2>
                 <p className="mb-4">
-                    Hello, I'm a software developer! I can help you build a product, feature, or website. Look through some of my work and experience! If you like what you see and have a project you need coded, don't hesitate to contact me.
+                    Hello, I&apos;m a software developer! I can help you build a product, feature, or website. Look through some of my work and experience! If you like what you see and have a project you need coded, don&apos;t hesitate to contact me.
                 </p>
-                <h3 className="text-xl font-semibold mb-2">Let's Connect</h3>
+                <h3 className="text-xl font-semibold mb-2">Let&apos;s Connect</h3>
                 <SocialIcons />
                 <button type="button" className="btn bg-blue-500 text-white px-4 py-2 rounded">Get my resume</button>
                 
