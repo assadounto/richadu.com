@@ -56,7 +56,7 @@ const FeaturedProjects: React.FC = () => {
                             description={project.description}
                             imageUrl={project.imageUrl}
                             projectLink={project.projectLink}
-                            techStackIcons={project.techStackIcons}
+                          
                         />
                     ))}
                     <div className="justify-center flex items-center mt-6">
