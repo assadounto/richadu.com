@@ -11,25 +11,23 @@ const FeaturedProjects: React.FC = () => {
 
     const projects = [
         {
+ 
             title: 'Hexcape',
             description: 'A game that combines iOS and physical puzzle game, using 3D, 360 world view, and AR',
             imageUrl: '/images/metric.png',
             projectLink: '/projects/hexcape',
-            techStackIcons: [<FaReact />, <FaNodeJs />, <FaDatabase />]
         },
         {
             title: 'Hexcape',
             description: 'A game that combines iOS and physical puzzle game, using 3D, 360 world view, and AR',
             imageUrl: '/images/metric.png',
             projectLink: '/projects/hexcape',
-            techStackIcons: [<FaReact />, <FaNodeJs />, <FaDatabase />]
         },
         {
             title: 'Hexcape',
             description: 'A game that combines iOS and physical puzzle game, using 3D, 360 world view, and AR',
             imageUrl: '/images/metric.png',
             projectLink: '/projects/hexcape',
-            techStackIcons: [<FaReact />, <FaNodeJs />, <FaDatabase />]
         },
         // Add more projects as needed
     ];
@@ -46,9 +44,9 @@ const FeaturedProjects: React.FC = () => {
             <div className="lg:w-2/3 bg-white p-6">
                 <Heading type="h2">Featured Projects</Heading>
                 <p className="max-w-[650px] my-10 font500 text-[16px] lg:text-base text-body">
-                    I'm a software developer! I can help you build a product, feature or website.
+                    I&apos;m a software developer! I can help you build a product, feature or website.
                     Look through some of my work and experience! If you like what you see and have a
-                    project you need coded, don't hesitate to contact me.
+                    project you need coded, don&apos;t hesitate to contact me.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {projects.map((project, index) => (
@@ -58,7 +56,7 @@ const FeaturedProjects: React.FC = () => {
                             description={project.description}
                             imageUrl={project.imageUrl}
                             projectLink={project.projectLink}
-                            techStackIcons={project.techStackIcons}
+                          
                         />
                     ))}
                     <div className="justify-center flex items-center mt-6">

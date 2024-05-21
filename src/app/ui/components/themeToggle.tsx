@@ -1,4 +1,4 @@
-// components/ThemeToggle.tsx
+'use client'
 import React from 'react';
 import { useTheme } from 'next-themes';
 import { CiLight, CiDark } from "react-icons/ci";
@@ -10,6 +10,7 @@ const ThemeToggle: React.FC = () => {
         <button
         name='Theme'
         role='option'
+        aria-selected
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             className="p-2"
         >

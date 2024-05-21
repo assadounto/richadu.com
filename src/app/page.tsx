@@ -7,10 +7,9 @@ import featuredProjects from "./ui/sections/featuredProjects";
 import FeaturedProjects from "./ui/sections/featuredProjects";
 import FeaturedPosts from "./ui/sections/featuredPosts";
 export default function Home() {
-  const { setTheme } = useTheme()
+
   return (
     <>
-    <NavBar />
     <Introductions />
     <FeaturedProjects/>
     <FeaturedPosts/>

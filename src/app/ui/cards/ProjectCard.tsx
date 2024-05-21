@@ -9,10 +9,9 @@ interface ProjectCardProps {
     description: string;
     imageUrl: string;
     projectLink: string;
-    techStackIcons: JSX.Element[];
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl, projectLink, techStackIcons }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl, projectLink }) => {
     return (
         <motion.li
             className="project-card rounded-md w-full border dark:border-gray-600 scale-100 hover:scale-105 active:scale-95 motion-safe:transform-gpu transition duration-300 motion-reduce:hover:scale-100 animate-shadow"
@@ -27,11 +26,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl,
                 <p className="mb-auto text-sm text-gray-700 dark:text-gray-300">{description}</p>
                 <div className="mt-2">
                     <ul className="flex gap-2">
-                        {techStackIcons.map((icon, index) => (
+                        {/* {techStackIcons.map((icon, index) => (
                             <li key={index} className="text-xl text-gray-700 dark:text-gray-200">
                                 {icon}
                             </li>
-                        ))}
+                        ))} */}
                     </ul>
                 </div>
                 <figure className="pointer-events-none mt-3 w-full overflow-hidden rounded shadow dark:shadow-none">
@@ -41,7 +40,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl,
                             src={imageUrl}
                             alt={title}
                             layout="fill"
-                            objectFit="cover"
                             quality={100}
                         />
                     </div>
