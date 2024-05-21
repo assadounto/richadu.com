@@ -9,6 +9,7 @@ export type Post = {
     description: string;
     body: string;
     headings: Heading[];
+    cover: string;
     category: string;
 };
 
@@ -66,7 +67,7 @@ export async function getPosts(): Promise<Post[]> {
                 const { data, content } = matter(fileContent);
                 const headings = await getHeadings(content);
                 console.log(data)
-                return { ...data, slug: file.replace('.mdx', ''), body: content, headings, category: data.category || "Uncategorized" } as Post;
+                return { ...data, slug: file.replace('.mdx', ''), body: content, headings, category: data.category || "Uncategorized", cover:"/images/metric.png"} as Post;
             })
     );
 }

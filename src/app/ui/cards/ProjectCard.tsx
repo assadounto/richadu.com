@@ -41,7 +41,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl,
                             src={imageUrl}
                             alt={title}
                             layout="fill"
-                            objectFit="cover"
                             quality={100}
                         />
                     </div>
