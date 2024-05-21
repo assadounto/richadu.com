@@ -3,10 +3,7 @@ import { Post } from "@/app/ui/components/Post";
 import { notFound } from "next/navigation";
 import BlogLayout from "@/app/ui/layout/BlogLayout";
 
-export async function generateStaticParams() {
-    const posts = await getPosts();
-    return posts.map((post) => ({ slug: post.slug }));
-}
+
 
 export default async function Page({ params }: { params: { slug: string } }) {
     const post = await getPost(params.slug);

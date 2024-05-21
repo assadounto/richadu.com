@@ -9,6 +9,7 @@ export type Post = {
     description: string;
     body: string;
     headings: Heading[];
+    category: string;
 };
 
 export type Heading = {
@@ -64,8 +65,8 @@ export async function getPosts(): Promise<Post[]> {
                 const fileContent = await fs.readFile(filePath, "utf8");
                 const { data, content } = matter(fileContent);
                 const headings = await getHeadings(content);
-                console.log(headings)
-                return { ...data, slug: file.replace('.mdx', ''), body: content, headings } as Post;
+                console.log(data)
+                return { ...data, slug: file.replace('.mdx', ''), body: content, headings, category: data.category || "Uncategorized" } as Post;
             })
     );
 }
@@ -73,4 +74,10 @@ export async function getPosts(): Promise<Post[]> {
 export async function getPost(slug: string): Promise<Post | undefined> {
     const posts = await getPosts();
     return posts.find((post) => post.slug === slug);
+}
+
+
+export async function getPostsByCategory(category: string) {
+    const posts = await getPosts();
+    return posts.filter(post => post.category.toLowerCase() === category.toLowerCase());
 }
