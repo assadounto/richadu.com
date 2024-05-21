@@ -9,7 +9,7 @@ const FeaturedProjects: React.FC = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
 
-    const projects:any = [
+    const projects = [
         {
  
             title: 'Hexcape',
