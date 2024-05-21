@@ -5,7 +5,7 @@ import Link from "next/link";
 import TechStack from "../components/TechStack";
 const Introductions: React.FC = () => {
     return (
-        <section className="flex justify-center  intro lg:items-center flex-col h-screen mt-5  bg-blue" id="head">
+        <section className="flex justify-center  intro lg:items-center flex-col h-screen  bg-blue" id="head">
             <div className="lg:w-2/3  ">
                 <Heading type='h1'>Hi! <span className="block" >My name is Richmond!</span></Heading>
                 <p className="max-w-[650px] dark:text-white  my-10 font500 text-[16px] lg:text-base text-body">

@@ -1,4 +1,4 @@
-// components/ThemeToggle.tsx
+'use client'
 import React from 'react';
 import { useTheme } from 'next-themes';
 import { CiLight, CiDark } from "react-icons/ci";

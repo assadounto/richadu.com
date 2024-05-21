@@ -11,7 +11,7 @@ const navLinks = [
     },
     {
         lable: 'Blog',
-        link: '#',
+        link: '/blog',
     },
     {
         lable: 'Contact',
@@ -24,7 +24,7 @@ const NavBar: React.FC = () => {
     return (
         <nav className="h-[70px] top-0 left-0 fixed w-full items-center backdrop-blur inset-x-0 top-0 px-8 border-b flex justify-between border-gray-200 dark:border-gray-600 dark:bg-gray-800 z-50">
             <div>
-                <Link href="#" className="animate-pulse" id="logo">My Logo</Link>
+                <Link href="/" className="animate-pulse" id="logo">My Logo</Link>
             </div>
             <div>
                 <ul className="flex items-center justify-end space-x-4">
