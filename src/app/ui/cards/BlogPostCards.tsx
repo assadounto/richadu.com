@@ -54,8 +54,8 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
                         </div>
                     </div>
                     <div className="p-4">
-                        <h4 className="text-gray-800 dark:text-gray-100 text-lg">{title}</h4>
-                        <div className="mt-2 flex items-center justify-start gap-2 text-sm font-medium text-gray-600 dark:text-gray-300">
+                        <h4 className="text-gray-800 dark:text-primary text-lg">{title}</h4>
+                        <div className="mt-2 flex items-center justify-start gap-2 text-sm font-medium text-gray-600 dark:text-primary">
                             <div className="flex items-center gap-1">
                                 <svg
                                     stroke="currentColor"
@@ -70,7 +70,7 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
                                 >
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
-                                <span className="transition-colors bg-gradient-to-tr from-primary-300/40 via-primary-300/40 to-primary-400/40 dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">
+                                <span className="transition-colors bg-gradient-to-tr from-primary-300/40 via-primary-300/40 to-primary-400/40 dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-primary">
                                     {readTime}
                                 </span>
                             </div>
@@ -89,15 +89,15 @@ const BlogPostCard: React.FC<BlogPostCardProps> = ({
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                 </svg>
-                                <span className="transition-colors bg-gradient-to-tr from-primary-300/40 via-primary-300/40 to-primary-400/40 dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">
+                                <span className="transition-colors bg-gradient-to-tr from-primary-300/40 via-primary-300/40 to-primary-400/40 dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-primary">
                                     {views.toLocaleString()} views
                                 </span>
                             </div>
                         </div>
                         <p className="mb-2 mt-4 text-sm text-gray-600 dark:text-gray-300">
-                            <span className="font-bold text-gray-800 dark:text-gray-100">{date}</span>
+                            <span className="font-bold text-gray-800 dark:text-primary">{date}</span>
                         </p>
-                        <p className="text-sm text-gray-700 dark:text-gray-300">{description}</p>
+                        <p className="text-sm text-gray-700 dark:text-primary">{description}</p>
                     </div>
                 </article>
             </Link>

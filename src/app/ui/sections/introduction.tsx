@@ -21,16 +21,7 @@ const Introductions: React.FC = () => {
                 </div>
             </div>
 
-            <Link className="absolute bottom-2 left-1/2 -translate-x-1/2 md:bottom-10 cursor-pointer rounded-md transition-colors hover:text-primary-300 focus-visible:text-primary-300" href="/#featured">
-                <Image
-                    className="animate-bounce"
-                    src={'/svg/arrowDown.svg'}
-                    width={50}
-                    height={60}
-                    alt="Arrow down"
-                />
-
-            </Link>
+          
         </section>
     );
 }
