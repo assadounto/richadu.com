@@ -29,7 +29,7 @@ const FeaturedPosts: React.FC = () => {
     ];
     return (
         <section className="flex justify-center lg:items-center flex-col pt-8 mt-5 bg-blue w-full" id="head">
-            <div className="lg:w-2/3 bg-white p-6">
+            <div className="lg:w-2/3  p-6">
                 <Heading type="h2">Featured Posts</Heading>
                 <ul className="flex flex-wrap -mx-2">
                     {blogPosts.map((post, index) => (
