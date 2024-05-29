@@ -1,71 +1,44 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+
 import Heading from '../components/Heading';
 import { FaReact, FaNodeJs, FaDatabase } from 'react-icons/fa';
 import ProjectCard from '../cards/ProjectCard';
 import Button from '../components/Button';
+import { getProjects } from '@/lib/projects';
 
-const FeaturedProjects: React.FC = () => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
+const FeaturedProjects: React.FC = async() => {
 
-    const projects = [
-        {
-
-            title: 'Hexcape',
-            description: 'A game that combines iOS and physical puzzle game, using 3D, 360 world view, and AR',
-            imageUrl: '/images/metric.png',
-            projectLink: '/projects/hexcape',
-        },
-        {
-            title: 'Hexcape',
-            description: 'A game that combines iOS and physical puzzle game, using 3D, 360 world view, and AR',
-            imageUrl: '/images/metric.png',
-            projectLink: '/projects/hexcape',
-        },
-        {
-            title: 'Hexcape',
-            description: 'A game that combines iOS and physical puzzle game, using 3D, 360 world view, and AR',
-            imageUrl: '/images/metric.png',
-            projectLink: '/projects/hexcape',
-        },
-        // Add more projects as needed
-    ];
+    const projects=await getProjects()
 
     return (
-        <motion.section
-            ref={ref}
-            className={`flex pt-[-820px]  lg:pt-[1rem] lg:items-center flex-col bg-blue w-full`}
+        <section
+            className={`flex justify-center lg:items-center flex-col pt-8 mt-5 bg-blue w-full`}
             id="featured"
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-            <div className="lg:w-2/3  p-6">
-                <Heading type="h2">Featured Projects</Heading>
+            <div className="lg:w-[90%]  p-4">
+                <Heading className='text-link' type="h2">Featured Projects</Heading>
                 <p className="max-w-[650px] dark:text-white my-10 font500 text-[16px] lg:text-base text-body">
                     I&apos;m a software developer! I can help you build a product, feature or website.
                     Look through some of my work and experience! If you like what you see and have a
                     project you need coded, don&apos;t hesitate to contact me.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <ul className="flex flex-wrap -mx-2">
                     {projects.map((project, index) => (
+                         <li key={index} className="w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
                         <ProjectCard
                             key={index}
-                            title={project.title}
-                            description={project.description}
-                            imageUrl={project.imageUrl}
-                            projectLink={project.projectLink}
+                          {...project}
 
                         />
+                        </li>
                     ))}
-                    <div className="justify-center flex items-center mt-6">
-                        <Button>See more →</Button>
-                    </div>
+                </ul>
+                   
                 </div>
 
+            <div className="justify-center flex items-center mt-6">
+                <Button>See more →</Button>
             </div>
-        </motion.section>
+        </section>
     );
 };
 

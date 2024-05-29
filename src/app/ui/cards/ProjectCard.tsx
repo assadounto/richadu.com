@@ -1,53 +1,61 @@
+// components/ProjectCard.tsx
 import React from 'react';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import Heading from '../components/Heading';
+import { Project } from '@/types';
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
-interface ProjectCardProps {
-    title: string;
-    description: string;
-    imageUrl: string;
-    projectLink: string;
-}
-
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl, projectLink }) => {
+const ProjectCard: React.FC<Project> = ({
+    title,
+    description,
+    cover,
+    tags,
+    link,
+    demoUrl,
+    githubUrl,
+}) => {
     return (
-        <motion.li
-            className="project-card rounded-md w-full border dark:border-gray-600 scale-100 hover:scale-105 active:scale-95 motion-safe:transform-gpu transition duration-300 motion-reduce:hover:scale-100 animate-shadow"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-        >
-            <Link
-                className="flex h-[400px] flex-col items-start rounded-md p-5 focus:outline-none focus-visible:ring focus-visible:ring-primary-300"
-                href={projectLink}
-            >
-                <Heading type='h3'>{title}</Heading>
-                <p className="mb-auto text-sm text-gray-700 dark:text-gray-300">{description}</p>
-                <div className="mt-2">
-                    <ul className="flex gap-2">
-                        {/* {techStackIcons.map((icon, index) => (
-                            <li key={index} className="text-xl text-gray-700 dark:text-gray-200">
-                                {icon}
-                            </li>
-                        ))} */}
-                    </ul>
+        <div className="bg-white shadow-md rounded-lg overflow-hidden">
+            <div className="relative">
+                <Link href={link}>
+                    <span>
+                        <Image src={cover} alt={title} width={600} height={300} className="w-full object-cover" />
+                    </span>
+                </Link>
+                {demoUrl && (
+                    <a href={demoUrl} className="absolute hidden hover:flex top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 text-white font-semibold text-lg">
+                        <FaExternalLinkAlt />
+                    </a>
+                )}
+            </div>
+            <div className="p-4">
+                <h3 className="text-lg font-semibold mb-2">
+                    <Link href={`/projects/${title.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <span className="text-blue-600 hover:underline">{title}</span>
+                    </Link>
+                </h3>
+                <p className="text-gray-600 mb-4">{description}</p>
+                <div className="flex flex-wrap gap-2">
+                    {tags?.split(',').map((tag, index) => (
+                        <span key={index} className="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm">
+                            {tag}
+                        </span>
+                    ))}
                 </div>
-                <figure className="pointer-events-none mt-3 w-full overflow-hidden rounded shadow dark:shadow-none">
-                    <div className="relative h-0" style={{ paddingTop: '55%' }}>
-                        <Image
-                            className="absolute left-0 top-0 w-full h-full object-cover rounded"
-                            src={imageUrl}
-                            alt={title}
-                            layout="fill"
-                            quality={100}
-                        />
-                    </div>
-                </figure>
-
-                <p className="animated-underline mt-2 inline-block font-medium">see more →</p>
-            </Link>
-        </motion.li>
+                <div className="flex justify-between items-center mt-4">
+                    {githubUrl && (
+                        <a href={githubUrl} className="text-blue-600 hover:underline">
+                            <FaGithub /> GitHub
+                        </a>
+                    )}
+                    <Link href={`/projects/${title.toLowerCase().replace(/\s+/g, '-')}`}>
+                        <span className="text-blue-600 hover:underline">
+                            <FaExternalLinkAlt /> See More
+                        </span>
+                    </Link>
+                </div>
+            </div>
+        </div>
     );
 };
 

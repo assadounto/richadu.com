@@ -19,7 +19,7 @@ export async function getProjects(): Promise<Project[]> {
                 const { data, content } = matter(fileContent);
                 const headings = await getHeadings(content);
                 console.log(data)
-                return { ...data, slug: file.replace('.mdx', ''), body: content, headings, category: data.category || "Uncategorized", cover: "/images/metric.png" } as Project;
+                return { ...data, slug: file.replace('.mdx', ''), body: content, headings, category: data.category || "Uncategorized", link: `/projects/${data.category || "Uncategorized"}/${file.replace('.mdx', '')}`, } as Project;
             })
     );
 }

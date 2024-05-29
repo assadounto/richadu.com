@@ -3,27 +3,34 @@ author: Richmond Adu-kyere
 title: My First Post
 date: '2023-05-20'
 description: This is a description of my first post.
-category: Tech
+category: Arduino
 cover: /images/metric.png
-views: 89
-likes: 6
+views: 31
+likes: 8
+readTime: 8
+tags: fred
 ---
 
 # My First Post
 
-Content of the post...
+Welcome to my first blog post! In this post, I will talk about some interesting projects you can create using Arduino.
 
-## Embedded YouTube Video
+## Getting Started with Arduino
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Arduino is an open-source electronics platform based on easy-to-use hardware and software. It's intended for anyone making interactive projects.
 
-## Code Example
+## Example Projects
 
-```javascript
-console.log('Hello, world!');
-```
+### Project 1: Blinking LED
+One of the simplest projects is blinking an LED. Here is a sample code:
+```cpp
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+}
 
-
-
-
-
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);
+}

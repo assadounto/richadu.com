@@ -13,7 +13,9 @@ const config: Config = {
         primary: "#172b4d",
         body: "#344563",
         voilet: "#0000EE",
-        link: "#396DF2"
+        link: "#396DF2",
+        dark: "rgb(14, 17, 17)"
+
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

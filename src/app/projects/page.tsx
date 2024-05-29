@@ -1,29 +1,28 @@
+// pages/projects.tsx
+import React from 'react';
+import { GetStaticProps } from 'next';
+import Heading from '../ui/components/Heading';
+import ProjectCard from '../ui/cards/ProjectCard';
+import { Project } from '@/types';
+import { getProjects } from '@/lib/projects';
 
-import { getProjects } from "@/lib/projects";
-import Link from "next/link";
+interface ProjectsPageProps {
+    projects: Project[];
+}
 
-
-
-
-const ProjectIndexPage = async () => {
-
+const ProjectsPage: React.FC = async() => {
     const projects = await getProjects();
-    const categories = Array.from(new Set(projects.map(project => project.category)));
-
     return (
-        <div>
-            <h1 className="text-3xl font-bold mb-4">Blog Categories</h1>
-            <ul>
-                {categories.map(category => (
-                    <li key={category}>
-                        <Link href={`/projects/${category.toLowerCase()}`}>
-                             <span className="text-blue-600 hover:underline">{category}</span>
-                        </Link>
-                    </li>
+        <div className="container mx-auto px-4 py-8">
+            <Heading type="h1">All Projects</Heading>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mt-6">
+                {projects.map((project, index) => (
+                    <ProjectCard key={index} {...project} />
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };
 
-export default ProjectIndexPage;
+
+export default ProjectsPage;
