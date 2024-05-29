@@ -1,0 +1,14 @@
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <g fill="none" stroke="rgba(255, 255, 255, 0.07)" stroke-width="2">
+    <!-- Code Brackets -->
+    <path class="svg1" d="M10 80 Q 52.5 10, 95 80 T 180 80"/>
+    <path class="svg2" d="M200 150 Q 250 50, 300 150 T 400 150"/>
+    
+    <!-- Curly Braces -->
+    <path class="svg3" d="M500 200 C 520 100, 580 100, 600 200 S 680 300, 700 200"/>
+    
+    <!-- Angle Brackets -->
+    <path class="svg4" d="M800 250 L850 150 L900 250"/>
+    <path class="svg4" d="M850 150 L900 50 L950 150"/>
+  </g>
+</svg>

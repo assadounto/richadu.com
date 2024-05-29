@@ -1,6 +1,6 @@
-"use client"
+'use client'
 import React, { useEffect, useRef, useState } from 'react';
-import Heading from './Heading';
+import { FaChevronRight } from 'react-icons/fa';
 import slugify from 'slugify';
 
 interface HeadingObject {
@@ -59,20 +59,29 @@ const TableOfContents: React.FC<HeadingProps> = ({ headings }) => {
     }, [headings]);
 
     return (
-        <div className=''>
-            <Heading type="h3">Table of Contents:</Heading>
-            {headings.map((heading) => {
-                const anchor = slugifyText(heading.text);
-                return (
-                    <a
-                        key={heading.text}
-                        href={`#${anchor}`}
-                        className={activeId === anchor ? 'text-blue-600' : ''}
-                    >
-                        {heading.text}
-                    </a>
-                );
-            })}
+        <div className="p-6  bg-white border border-gray-200 rounded-lg shadow-lg">
+            <h3 className="text-2xl font-bold text-gray-800 mb-6">Table of Contents</h3>
+            <ul className="space-y-4">
+                {headings.map((heading) => {
+                    const anchor = slugifyText(heading.text);
+                    return (
+                        <li
+                            key={heading.text}
+                            className={`transition-colors duration-300 ${activeId === anchor ? 'text-blue-600' : 'text-gray-700'
+                                }`}
+                        >
+                            <a
+                                href={`#${anchor}`}
+                                className={`flex items-center space-x-2 hover:text-blue-500 ${activeId === anchor ? 'font-semibold' : 'font-normal'
+                                    }`}
+                            >
+                                <FaChevronRight className="text-sm transition-transform duration-300" />
+                                <span>{heading.text}</span>
+                            </a>
+                        </li>
+                    );
+                })}
+            </ul>
         </div>
     );
 };

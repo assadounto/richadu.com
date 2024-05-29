@@ -16,14 +16,14 @@ interface HeadingProps {
 const headingClasses = {
     h1: 'text-5xl font800',
     h2: 'text-4xl font500',
-    h3: 'text-3xl font300',
+    h3: 'text-3xl font500',
     h4: 'text-2xl font300',
     h5: 'text-lg font300',
     h6: 'text-base font-thin',
 };
 
 const Heading: React.FC<HeadingProps> = ({ children, type, className, ...props }) => {
-    const defaultClasses = ' text-primary dark:text-white';
+    const defaultClasses = 'text-blue-600 dark:text-white';
     const typeClasses = headingClasses[type];
     const combinedClasses = clsx(defaultClasses, typeClasses, className);
 

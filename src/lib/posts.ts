@@ -17,10 +17,20 @@ export async function getPosts(): Promise<Post[]> {
                 const { data, content } = matter(fileContent);
                 const headings = await getHeadings(content);
                 console.log(data)
-                return { ...data, slug: file.replace('.mdx', ''), body: content, headings, category: data.category || "Uncategorized", cover: "/images/metric.png" } as Post;
+                return { 
+                    ...data,
+                     slug: file.replace('.mdx', ''), 
+                     body: content, headings, 
+                     category: data.category || "Uncategorized",
+                     link: `/blog/${data.category || "Uncategorized"}/${file.replace('.mdx', '') }`,
+        
+                } as Post;
+                    
             })
     );
 }
+
+
 
 export async function getPost(slug: string): Promise<Post | undefined> {
     const posts = await getPosts();

@@ -13,7 +13,13 @@
     views: number;
     likes: number;
     author: string;
+    readTime:number,
+    tags:string,
+    link: string
+
 };
+
+
 
 type Heading = {
     text: string;
@@ -24,6 +30,8 @@ type Project = {
     title: string;
     slug: string;
     date: string;
+    link: string;
+    tags: string,
     description: string;
     body: string;
     headings: Heading[];
@@ -32,7 +40,12 @@ type Project = {
     views: number;
     likes: number; 
     author: string;
+    demoUrl: string,
+    githubUrl: string,
+    company:string
 }
+
+
 
 
 export type {Post, Heading,Project};

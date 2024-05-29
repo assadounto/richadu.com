@@ -1,5 +1,6 @@
 'use client'
 import React, { useEffect, useState, useRef } from 'react';
+import { FaEye, FaThumbsUp } from 'react-icons/fa';
 
 interface ViewsAndLikesProps {
     slug: string;
@@ -42,10 +43,17 @@ const ViewsAndLikes: React.FC<ViewsAndLikesProps> = ({ slug, initialViews, initi
     };
 
     return (
-        <div className="mt-4">
-            <p>Views: {views}</p>
-            <button onClick={handleLike} className="text-blue-600 hover:underline">
-                Like ({likes})
+        <div className="mt-4 flex items-center space-x-4">
+            <div className="flex items-center space-x-2 text-gray-700">
+                <FaEye className="text-xl" />
+                <span className="text-lg">{views}</span>
+            </div>
+            <button
+                onClick={handleLike}
+                className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 focus:outline-none"
+            >
+                <FaThumbsUp className="text-xl" />
+                <span className="text-lg">{likes}</span>
             </button>
         </div>
     );
