@@ -19,7 +19,7 @@ const Introductions: React.FC = () => {
                 I work with modern web technologies and embedded systems, striving to create efficient and scalable solutions.
             </p>
             <p className="mt-3 max-w-4xl leading-relaxed text-gray-700 dark:text-gray-200 md:mt-4 md:text-lg 2xl:text-xl" data-fade="4">
-                Don't forget to check out my 
+                Don&apost forget to check out my
                 <Link href="/portfolio">
                     <div className="animated-underline custom-link inline-flex items-center font-medium focus:outline-none focus-visible:ring focus-visible:ring-primary-300 border-b border-dotted border-dark hover:border-black/0">
                         <span className="dark:bg-gradient-to-tr dark:from-primary-300 dark:to-primary-400 dark:bg-clip-text dark:text-transparent">  portfolio</span>
