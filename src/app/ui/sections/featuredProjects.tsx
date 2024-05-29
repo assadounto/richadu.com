@@ -16,7 +16,7 @@ const FeaturedProjects: React.FC = async() => {
         >
             <div className="lg:w-[90%]  p-4">
                 <Heading className='text-link' type="h2">Featured Projects</Heading>
-                <p className="max-w-[650px] dark:text-white my-10 font500 text-[16px] lg:text-base text-body">
+                <p className="max-w-[650px] dark:text-white my-10  text-[16px]  text-gray-600">
                     I&apos;m a software developer! I can help you build a product, feature or website.
                     Look through some of my work and experience! If you like what you see and have a
                     project you need coded, don&apos;t hesitate to contact me.
@@ -32,12 +32,12 @@ const FeaturedProjects: React.FC = async() => {
                         </li>
                     ))}
                 </ul>
-                   
+                <div className=" p-4 self-start flex items-center mt-6">
+                    <Button>See more →</Button>
+                </div>
                 </div>
 
-            <div className="justify-center flex items-center mt-6">
-                <Button>See more →</Button>
-            </div>
+            
         </section>
     );
 };

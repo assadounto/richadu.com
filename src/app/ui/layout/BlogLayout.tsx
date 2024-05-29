@@ -4,6 +4,8 @@ import ViewsAndLikes from '../components/ViewsAndLikes';
 import Image from 'next/image';
 import { FaCalendarAlt, FaClock } from 'react-icons/fa';
 import { Post } from '@/types';
+import Tags from '../components/Tags';
+import Heading from '../components/Heading';
 
 interface BlogLayoutProps {
     children: ReactNode;
@@ -19,7 +21,7 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({ children, post }) => {
                 </div>
                 <div className="w-full md:w-1/3 flex flex-col justify-between p-4 bg-white">
                     <div>
-                        <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
+                        <Heading type='h2' className=" mb-2">{post.title}</Heading>
                         <p className="text-gray-600 mb-4">{post.description}</p>
                         <div className="flex items-center space-x-4">
                             <span className="text-gray-600 flex items-center">
@@ -31,6 +33,7 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({ children, post }) => {
                                 {post.readTime}mins read
                             </span>
                         </div>
+                        <Tags tags={post.tags}/>
                     </div>
                     <div className="mt-4">
                         <ViewsAndLikes slug={post.slug} initialViews={post.views} initialLikes={post.likes} />

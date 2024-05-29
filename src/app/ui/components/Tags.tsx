@@ -1,21 +1,24 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { FaTags } from 'react-icons/fa';
 
-const Tags: React.FC = ({tags=''}) => {
+interface TagsProps {
+    tags: string;
+}
+
+const Tags: React.FC<TagsProps> = ({ tags }) => {
     return (
-        <div className="flex flex-wrap items-center space-x-2 mb-4">
+        <div className="flex mt-4 flex-wrap items-center space-x-2 mb-4">
             <FaTags className="text-gray-600 mr-2" />
-            {tags?.split(',').map((tag:string) => (
+            {tags?.split(',').map((tag: string) => (
                 <span
-                    key={tag}
+                    key={tag.trim()}
                     className="bg-gray-200 text-gray-800 px-2 py-1 rounded-md text-sm"
                 >
-                    {tag}
+                    {tag.trim()}
                 </span>
             ))}
         </div>
-    )
+    );
 };
 
 export default Tags;

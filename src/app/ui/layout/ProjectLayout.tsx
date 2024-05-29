@@ -4,6 +4,7 @@ import TableOfContents from '@/app/ui/components/Toc';
 import ViewsAndLikes from '../components/ViewsAndLikes';
 import Image from 'next/image';
 import { Project } from '@/types';
+import Tags from '../components/Tags';
 
 interface ProjectLayoutProps {
     children: ReactNode;
@@ -37,17 +38,7 @@ const ProjectLayout: React.FC<ProjectLayoutProps> = ({ children, project }) => {
                                 {project.category}
                             </span>
                         </div>
-                        <div className="flex flex-wrap items-center space-x-2 mb-4">
-                            <FaTags className="text-gray-600 mr-2" />
-                            {project.tags?.split(',').map((tech) => (
-                                <span
-                                    key={tech}
-                                    className="bg-gray-200 text-gray-800 px-2 py-1 rounded-md text-sm"
-                                >
-                                    {tech}
-                                </span>
-                            ))}
-                        </div>
+                        <Tags tags={project.tags}/>
                         <div className="flex items-center space-x-2 mb-2">
                             {project.githubUrl&& (
                                 <a href={project.githubUrl} className="text-blue-600 hover:underline flex items-center">

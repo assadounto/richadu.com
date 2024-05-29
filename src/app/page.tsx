@@ -11,6 +11,7 @@ export default async function Home () {
     <Introductions />
     <FeaturedProjects/>
     <FeaturedPosts posts={posts}/>
+
  
     </>
 

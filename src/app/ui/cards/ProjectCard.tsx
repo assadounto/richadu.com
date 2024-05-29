@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Project } from '@/types';
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import Tags from '../components/Tags';
+import Heading from '../components/Heading';
 
 const ProjectCard: React.FC<Project> = ({
     title,
@@ -23,34 +25,28 @@ const ProjectCard: React.FC<Project> = ({
                     </span>
                 </Link>
                 {demoUrl && (
-                    <a href={demoUrl} className="absolute hidden hover:flex top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 text-white font-semibold text-lg">
+                    <Link href={demoUrl} className="absolute hidden hover:flex top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 text-white font-semibold text-lg">
                         <FaExternalLinkAlt />
-                    </a>
+                    </Link>
                 )}
             </div>
             <div className="p-4">
-                <h3 className="text-lg font-semibold mb-2">
+                <Heading type='h3' className="text-lg  mb-2">
                     <Link href={`/projects/${title.toLowerCase().replace(/\s+/g, '-')}`}>
                         <span className="text-blue-600 hover:underline">{title}</span>
                     </Link>
-                </h3>
+                </Heading>
                 <p className="text-gray-600 mb-4">{description}</p>
-                <div className="flex flex-wrap gap-2">
-                    {tags?.split(',').map((tag, index) => (
-                        <span key={index} className="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm">
-                            {tag}
-                        </span>
-                    ))}
-                </div>
+               <Tags tags={tags}/>
                 <div className="flex justify-between items-center mt-4">
                     {githubUrl && (
-                        <a href={githubUrl} className="text-blue-600 hover:underline">
+                        <Link href={githubUrl} className="text-blue-600 hover:underline">
                             <FaGithub /> GitHub
-                        </a>
+                        </Link>
                     )}
                     <Link href={`/projects/${title.toLowerCase().replace(/\s+/g, '-')}`}>
-                        <span className="text-blue-600 hover:underline">
-                            <FaExternalLinkAlt /> See More
+                        <span className="inline text-blue-600 hover:underline">
+                            <FaExternalLinkAlt />  See More
                         </span>
                     </Link>
                 </div>
