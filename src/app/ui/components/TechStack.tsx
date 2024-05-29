@@ -1,33 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaTags } from 'react-icons/fa';
 
-const techStacks = [
-    { name: 'JavaScript', icon: '🟨' },
-    { name: 'React', icon: '⚛️' },
-    { name: 'Node.js', icon: '🟩' },
-    { name: 'TypeScript', icon: '🔷' },
-    { name: 'Tailwind CSS', icon: '🌬️' },
-];
-
-const TechStack: React.FC = () => {
+const Tags: React.FC = ({tags=''}) => {
     return (
-        <div className="flex flex-wrap justify-center gap-8 p-8 bg-gray-100 dark:bg-gray-800">
-            {techStacks.map((tech) => (
-                <motion.div
-                    key={tech.name}
-                    className="flex flex-col items-center justify-center p-6 bg-white dark:bg-gray-900 rounded-lg shadow-md"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
+        <div className="flex flex-wrap items-center space-x-2 mb-4">
+            <FaTags className="text-gray-600 mr-2" />
+            {tags?.split(',').map((tag:string) => (
+                <span
+                    key={tag}
+                    className="bg-gray-200 text-gray-800 px-2 py-1 rounded-md text-sm"
                 >
-                    <div className="text-4xl">{tech.icon}</div>
-                    <h3 className="mt-4 text-xl font-semibold text-gray-800 dark:text-gray-200">{tech.name}</h3>
-                </motion.div>
+                    {tag}
+                </span>
             ))}
         </div>
-    );
+    )
 };
 
-export default TechStack;
+export default Tags;

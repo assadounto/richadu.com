@@ -42,7 +42,7 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({ children, post }) => {
                     {children}
                 </article>
                 <aside>
-                    <div className="sticky w-[110px] top-36">
+                    <div className="sticky top-36">
                         <TableOfContents headings={post.headings} />
                     </div>
                 </aside>
