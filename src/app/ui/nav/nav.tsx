@@ -2,19 +2,20 @@ import React from 'react';
 import Link from 'next/link';
 import { DiGithubBadge } from 'react-icons/di';
 import ThemeToggle from '../components/themeToggle';
+import Logo from '../components/logo';
 
 
 const navLinks = [
     {
-        lable: 'Projects',
-        link: '#',
+        lable: 'Portfolio',
+        link: '/projects',
     },
     {
         lable: 'Blog',
         link: '/blog',
     },
     {
-        lable: 'Contact',
+        lable: 'Services',
         link: '#',
     },
 ]
@@ -22,9 +23,9 @@ const navLinks = [
 
 const NavBar: React.FC = () => {
     return (
-        <nav className="h-[70px] top-0 left-0 fixed w-full items-center backdrop-blur inset-x-0 top-0 px-8 border-b flex justify-between border-gray-200 dark:border-gray-600 dark:bg-gray-800 z-50">
+        <nav className="h-[70px] top-0 left-0 fixed w-full items-center backdrop-blur-md  dark:backdrop-blur-1 md:backdrop-blur inset-x-0 top-0 px-8 border-b flex justify-between border-gray-200 dark:border-gray-600  dark:bg-dark z-50">
             <div>
-                <Link href="/" className="animate-pulse" id="logo">My Logo</Link>
+                <Link href="/" className="animate-pulse" id="logo"><Logo/></Link>
             </div>
             <div>
                 <ul className="flex items-center justify-end space-x-4">

@@ -12,15 +12,16 @@ const BlogIndexPage = async () => {
     const categories = Array.from(new Set(posts.map(post => post.category)));
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="container mt-10 mb-16  mx-auto p-4">
             <Heading type="h2">Blog Home</Heading>
+            
 
             {/* Categories Section */}
-            <div className="mb-6 flex flex-wrap gap-4">
+            <div className="my-16 flex flex-wrap gap-4">
                 {categories.map(category => (
-                    <div key={category} className="bg-blue-500 text-white rounded-lg p-4 shadow-md hover:bg-blue-600 transition-colors">
+                    <div key={category}>
                         <Link href={`/blog/${category.toLowerCase()}`}>
-                            <span className="text-lg font-semibold">{category}</span>
+                            <span className="bg-gray-200 text-gray-800 px-2 py-1 rounded-md text-sm">{category}</span>
                         </Link>
                     </div>
                 ))}
@@ -29,9 +30,9 @@ const BlogIndexPage = async () => {
             {/* Blog Posts Section */}
             <div>
                 <Heading type="h3">All Blog Posts</Heading>
-                <ul className="flex flex-wrap -mx-2">
+                <ul className="flex flex-wrap my-6 -mx-2">
                     {posts.map(post => (
-                        <li key={`/blog/`} className="w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
+                        <li key={`/blog/`} className="w-full md:w-1/2 lg:w-1/3 py-5 px-5 mb-4">
                             <BlogPostCard {...post} />
                         </li>
                     ))}

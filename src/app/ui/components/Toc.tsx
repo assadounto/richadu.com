@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
 import slugify from 'slugify';
+import Heading from './Heading';
 
 interface HeadingObject {
     text: string;
@@ -59,23 +60,22 @@ const TableOfContents: React.FC<HeadingProps> = ({ headings }) => {
     }, [headings]);
 
     return (
-        <div className="p-6  bg-white border border-gray-200 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Table of Contents</h3>
+        <div className="p-6  border border-gray-200 rounded-lg ">
+            <Heading type='h3' className="text-xl  text-gray-800 mb-6">Table of Contents</Heading>
             <ul className="space-y-4">
                 {headings.map((heading) => {
                     const anchor = slugifyText(heading.text);
                     return (
                         <li
                             key={heading.text}
-                            className={`transition-colors duration-300 ${activeId === anchor ? 'text-blue-600' : 'text-gray-700'
+                            className={` transition-colors duration-300 ${activeId === anchor ? 'text-blue-600' : 'text-gray-700'
                                 }`}
                         >
                             <a
                                 href={`#${anchor}`}
-                                className={`flex items-center space-x-2 hover:text-blue-500 ${activeId === anchor ? 'font-semibold' : 'font-normal'
+                                className={`flex items-center  space-x-2 hover:text-blue-500 ${activeId === anchor ? 'font-semibold' : 'dark:text-gray-300 font-normal'
                                     }`}
                             >
-                                <FaChevronRight className="text-sm transition-transform duration-300" />
                                 <span>{heading.text}</span>
                             </a>
                         </li>

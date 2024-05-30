@@ -5,6 +5,7 @@ import BlogLayout from "@/app/ui/layout/BlogLayout";
 import Head from "next/head";
 import { notFound } from "next/navigation";
 
+
 export default async function Page({ params }: { params: { slug: string } }) {
     const post = await getPost(params.slug);
     if (!post) return notFound();

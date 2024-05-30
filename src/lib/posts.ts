@@ -22,7 +22,7 @@ export async function getPosts(): Promise<Post[]> {
                      slug: file.replace('.mdx', ''), 
                      body: content, headings, 
                      category: data.category || "Uncategorized",
-                     link: `/blog/${data.category || "Uncategorized"}/${file.replace('.mdx', '') }`,
+                    link: `/blog/${data.category.toLowerCase() || "Uncategorized"}/${file.replace('.mdx', '') }`,
         
                 } as Post;
                     

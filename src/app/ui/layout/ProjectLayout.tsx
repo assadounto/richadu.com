@@ -1,11 +1,15 @@
 import React, { ReactNode } from 'react';
 import { FaCalendarAlt, FaClock, FaLink, FaTags, FaEye, FaThumbsUp, FaGithub } from 'react-icons/fa';
 import TableOfContents from '@/app/ui/components/Toc';
+import { CiCalendar } from "react-icons/ci";
 import ViewsAndLikes from '../components/ViewsAndLikes';
 import Image from 'next/image';
 import { Project } from '@/types';
 import Tags from '../components/Tags';
-
+import Heading from '../components/Heading';
+import { WiTime7 } from "react-icons/wi";
+import { TbEye,TbCategory } from "react-icons/tb";
+import { formatDate } from '@/utils';
 interface ProjectLayoutProps {
     children: ReactNode;
     project: Project;
@@ -14,7 +18,7 @@ interface ProjectLayoutProps {
 const ProjectLayout: React.FC<ProjectLayoutProps> = ({ children, project }) => {
     return (
         <div className="max-w-7xl mx-auto p-6">
-            <section className="flex flex-col md:flex-row mb-8">
+            <section className="flex border-b pb-10 flex-col md:flex-row mb-8">
                 <div className="w-full md:w-2/3">
                     <Image
                         src={project.cover}
@@ -26,20 +30,20 @@ const ProjectLayout: React.FC<ProjectLayoutProps> = ({ children, project }) => {
                 </div>
                 <div className="w-full md:w-1/3 md:pl-6 flex flex-col justify-between">
                     <div>
-                        <h1 className="text-4xl font-bold mb-2">{project.title}</h1>
-                        <p className="text-gray-600 mb-4">{project.description}</p>
-                        <div className="flex items-center space-x-4 mb-4">
-                            <span className="flex items-center text-gray-600">
-                                <FaCalendarAlt className="mr-2" />
-                                {new Date(project.date).toLocaleDateString()}
+                        <Heading type='h2' className="text-gray-800 mb-2">{project.title}</Heading>
+                        <p className="text-gray-600 dark:text-gray-300 my-4">{project.description}</p>
+                        <div className="flex  items-center space-x-4 my-5">
+                            <span className="flex dark:text-gray-300 items-center text-gray-600">
+                                <CiCalendar className="mr-2" />
+                               {formatDate(project.date)}
                             </span>
-                            <span className="flex items-center text-gray-600">
-                                <FaClock className="mr-2" />
+                            <span className="flex dark:text-gray-300 items-center text-gray-600">
+                                <TbCategory className="mr-2 dark:text-gray-300 text-gray-600" />
                                 {project.category}
                             </span>
                         </div>
                         <Tags tags={project.tags}/>
-                        <div className="flex items-center space-x-2 mb-2">
+                        <div className="flex items-center space-x-2 my-5">
                             {project.githubUrl&& (
                                 <a href={project.githubUrl} className="text-blue-600 hover:underline flex items-center">
                                     <FaGithub className="mr-2" />
@@ -53,10 +57,10 @@ const ProjectLayout: React.FC<ProjectLayoutProps> = ({ children, project }) => {
                                 </a>
                             )}
                         </div>
-                        <p className="text-gray-600 mb-2">
+                        <p className="dark:text-gray-300 text-gray-600 mb-2">
                             <span className="font-semibold">Author:</span> {project.author}
                         </p>
-                        <p className="text-gray-600 mb-2">
+                        <p className="dark:text-gray-300 text-gray-600 mb-2">
                             <span className="font-semibold">Company:</span> {project.company}
                         </p>
                     </div>
