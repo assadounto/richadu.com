@@ -1,0 +1,18 @@
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="60" fill="white"/>
+  <text x="10" y="35" fill="black" font-family="Courier New, monospace" font-size="24" font-weight="bold">Richadu</text>
+  <line x1="10" y1="40" x2="190" y2="40" stroke="black" stroke-width="2" stroke-dasharray="4" id="animated-line"/>
+  <style>
+    @keyframes dash {
+      from {
+        stroke-dashoffset: 200;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+    #animated-line {
+      animation: dash 2s linear infinite;
+    }
+  </style>
+</svg>
