@@ -1,3 +1,6 @@
+import BlogPostCard from "@/app/ui/cards/BlogPostCards";
+import Heading from "@/app/ui/components/Heading";
+import BlogLayout from "@/app/ui/layout/BlogLayout";
 import { getPostsByCategory, getPosts } from "@/lib/posts";
 import Link from "next/link";
 
@@ -13,14 +16,12 @@ const CategoryPage = async ({ params }:{params:{category:string}}) => {
     const posts = await getPostsByCategory(category);
 
     return (
-        <div>
-            <h1 className="text-3xl font-bold mb-4">Category: {category}</h1>
-            <ul>
+        <div className="w-[90%]  mx-auto mt-10 mb-16">
+            <Heading type="h2" className="text-3xl font-bold my-20">{category.toUpperCase()} HOME</Heading>
+            <ul className="flex flex-wrap my-6 -mx-2">
                 {posts.map(post => (
-                    <li key={post.slug}>
-                        <Link href={`/blog/${category}/${post.slug}`}>
-                            <span className="text-blue-600 hover:underline">{post.title}</span>
-                        </Link>
+                    <li key={post.slug} className="w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
+                       <BlogPostCard {...post}/>
                     </li>
                 ))}
             </ul>

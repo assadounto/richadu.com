@@ -1,7 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Markdown } from "./MarkDown";
-import Toc from "./Toc";
-
+import YouTube from "@/app/ui/components/YouTube";
 
 export function Post({ children }: { children: string }) {
    

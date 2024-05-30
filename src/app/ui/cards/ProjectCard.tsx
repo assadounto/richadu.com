@@ -17,7 +17,7 @@ const ProjectCard: React.FC<Project> = ({
     githubUrl,
 }) => {
     return (
-        <div className="bg-white shadow-md rounded-lg overflow-hidden">
+        <div className="dark:border-[0.5px] shadow-md rounded-lg overflow-hidden">
             <div className="relative">
                 <Link href={link}>
                     <span>
@@ -33,20 +33,20 @@ const ProjectCard: React.FC<Project> = ({
             <div className="p-4">
                 <Heading type='h3' className="text-lg  mb-2">
                     <Link href={`/projects/${title.toLowerCase().replace(/\s+/g, '-')}`}>
-                        <span className="text-blue-600 hover:underline">{title}</span>
+                        <span className="text-blue-600 dark:text-white hover:underline">{title}</span>
                     </Link>
                 </Heading>
-                <p className="text-gray-600 mb-4">{description}</p>
+                <p className="dark:text-gray-300 text-gray-600 mb-4">{description}</p>
                <Tags tags={tags}/>
                 <div className="flex justify-between items-center mt-4">
                     {githubUrl && (
-                        <Link href={githubUrl} className="text-blue-600 hover:underline">
-                            <FaGithub /> GitHub
+                        <Link href={githubUrl} className="text-blue-600 dark:text-white hover:underline">
+                            <FaGithub size={20} /> 
                         </Link>
                     )}
                     <Link href={`/projects/${title.toLowerCase().replace(/\s+/g, '-')}`}>
-                        <span className="inline text-blue-600 hover:underline">
-                            <FaExternalLinkAlt />  See More
+                        <span className="inline dark:text-gray-300 text-blue-600 hover:underline">
+                         See More
                         </span>
                     </Link>
                 </div>

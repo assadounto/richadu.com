@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/provider/themeProvider";
 import NavBar from "./ui/nav/nav";
+import Footer from "./ui/footer/footer";
 
 const poppins = Poppins({ weight: ["100", '200', '300', '400', '500', '600', '700', '800', '900'], subsets: ["latin"] });
 
@@ -19,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} bg-solid p-5 dark:bg-dark dark:text-white`}>
+      <body className={`${poppins.className} p-5 dark:bg-dark dark:text-white`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -30,6 +31,7 @@ export default function RootLayout({
           <main className="pt-[60px]"> {/* Adjust the padding to match NavBar height */}
             {children}
           </main>
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>
