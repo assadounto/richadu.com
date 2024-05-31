@@ -14,11 +14,9 @@ export default function Home() {
 ;
 
     return (
-         <Suspense>
+        <div>
             <h1>Welcome to My Blog</h1>
-           
             <Search results={results} setResults={setResults} initsortBy={sortBy||''} initialQuery={query as string || ''} />
-        
             <ul className="flex flex-wrap my-6 -mx-2">
                 {results.map(post => (
                     <li key={`/blog/${post.slug}`} className="w-full md:w-1/2 lg:w-1/3 py-5 px-5 mb-4">
@@ -26,6 +24,6 @@ export default function Home() {
                     </li>
                 ))}
             </ul>
-        </Suspense>
+        </div>
     );
 }
