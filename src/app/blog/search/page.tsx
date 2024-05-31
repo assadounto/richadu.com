@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation'
 import Search from '@/app/ui/components/Search';
 import BlogPostCard from '@/app/ui/cards/BlogPostCards';
@@ -16,7 +16,9 @@ export default function Home() {
     return (
         <div>
             <h1>Welcome to My Blog</h1>
+            <Suspense>
             <Search results={results} setResults={setResults} initsortBy={sortBy||''} initialQuery={query as string || ''} />
+            </Suspense>
             <ul className="flex flex-wrap my-6 -mx-2">
                 {results.map(post => (
                     <li key={`/blog/${post.slug}`} className="w-full md:w-1/2 lg:w-1/3 py-5 px-5 mb-4">
