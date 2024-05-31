@@ -10,7 +10,7 @@ interface InnovationProps {
 
 const Innovation: React.FC<InnovationProps> = ({ title, description, imageUrl }) => {
     return (
-        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md my-4 flex flex-col md:flex-row">
+        <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md my-4 flex flex-col md:flex-row">
             {imageUrl && (
                 <div className="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4">
                     <Image src={imageUrl} alt={title} width={300} height={400} className="w-full  h-full rounded-lg object-cover" />

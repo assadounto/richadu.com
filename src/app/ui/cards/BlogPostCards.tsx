@@ -20,10 +20,10 @@ const BlogPostCard: React.FC<Post> = ({
     description,
 }) => {
 
-  
+
 
     return (
-        <div className="dark:border shadow-md rounded-lg overflow-hidden">
+        <div className="dark:bg-gray-900 dark:border shadow-md rounded-lg overflow-hidden">
             <Link href={link}>
                 <article className="cursor-pointer">
                     <Image src={cover} alt={title} width={600} height={300} className="w-full object-cover" />

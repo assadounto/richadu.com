@@ -17,7 +17,7 @@ const ProjectCard: React.FC<Project> = ({
     githubUrl,
 }) => {
     return (
-        <div className="dark:border-[0.5px] shadow-md rounded-lg overflow-hidden">
+        <div className="dark:border-[0.5px] dark:bg-gray-900 shadow-md rounded-lg overflow-hidden">
             <div className="relative">
                 <Link href={link}>
                     <span>
@@ -37,16 +37,16 @@ const ProjectCard: React.FC<Project> = ({
                     </Link>
                 </Heading>
                 <p className="dark:text-gray-300 text-gray-600 mb-4">{description}</p>
-               <Tags tags={tags}/>
+                <Tags tags={tags} />
                 <div className="flex justify-between items-center mt-4">
                     {githubUrl && (
                         <Link href={githubUrl} className="text-blue-600 dark:text-white hover:underline">
-                            <FaGithub size={20} /> 
+                            <FaGithub size={20} />
                         </Link>
                     )}
                     <Link href={`/projects/${title.toLowerCase().replace(/\s+/g, '-')}`}>
                         <span className="inline dark:text-gray-300 text-blue-600 hover:underline">
-                         See More
+                            See More
                         </span>
                     </Link>
                 </div>
