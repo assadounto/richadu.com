@@ -11,7 +11,7 @@ export async function generateStaticParams() {
     return categories.map(category => ({ category }));
 }
 
-const CategoryPage = async ({ params }:{params:{category:string}}) => {
+const CategoryPage = async ({ params }: { params: { category: string } }) => {
     const { category } = params;
     const posts = await getPostsByCategory(category);
 
@@ -20,8 +20,8 @@ const CategoryPage = async ({ params }:{params:{category:string}}) => {
             <Heading type="h2" className="text-3xl font-bold my-20">{category.toUpperCase()} HOME</Heading>
             <ul className="flex flex-wrap my-6 -mx-2">
                 {posts.map(post => (
-                    <li key={post.slug} className="w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
-                       <BlogPostCard {...post}/>
+                    <li key={post.slug} className="w-full md:w-1/2 lg:w-1/3 py-5 my-16 px-5 mb-">
+                        <BlogPostCard {...post} />
                     </li>
                 ))}
             </ul>

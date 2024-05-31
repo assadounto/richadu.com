@@ -12,7 +12,12 @@ module.exports = {
     transform: async (config, path) => {
         // Customize priority, changefreq, or other properties based on the path
         if (path === '/') {
-            return defaultValue(1.0);
+            return {
+                loc: path, // Use the original URL
+                changefreq: 'weekly',
+                priority: 0.8,
+                lastmod: new Date().toISOString(),
+            };
         }
         
         if (path.includes('/projects/')) {

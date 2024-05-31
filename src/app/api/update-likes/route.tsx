@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
 
     const sanitizedSlug = sanitizeFilename(slug);
 
-    const filePath = path.join(process.cwd(), 'src', 'content', 'blog', `${sanitizedSlug}.mdx`);
+    const filePath = path.join(process.cwd(), 'src', 'content', 'projects', `${sanitizedSlug}.mdx`);
 
     try {
         // Check if the file exists
