@@ -90,8 +90,12 @@ body {
 
 /* global.css */
 nav {
-background:hsla(0, 0%, 100%, .8);
-box-shadow: inset 0 -1px 0 0 var(--accents-2);
-backdrop-filter: saturate(180%) blur(5px);
+  background-color: rgba(255, 255, 255, 0.3);
+  /* Fallback color */
+  backdrop-filter: blur(8px);
+  /* Ensure this is supported */
+  -webkit-backdrop-filter: blur(8px);
+  /* For Safari */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   /* Fallback border */
 }
