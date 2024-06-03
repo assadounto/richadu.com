@@ -12,11 +12,11 @@ const QuoteSection: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
              
                    
-                        <Quote text="Innovation distinguishes between a leader and a follower." author="Steve Jobs" />
+                        <Quote text="We can't stop innovating!" author="Richmond Adu-Kyere" />
                         <Innovation
                             title="Revolutionary Project"
-                            description="This project leverages cutting-edge technology to solve real-world problems efficiently and effectively."
-                            imageUrl="/images/innovation.png"
+                            description="This project leverages cutting-edge technology to solve real-world problems efficiently and effectively by going back in time"
+                            imageUrl="/svg/sankofa.svg"
                         />
                     
                   

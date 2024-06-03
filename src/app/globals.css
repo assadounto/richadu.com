@@ -47,36 +47,38 @@ body {
 
 /* styles.css */
 
-
-/* styles/globals.css */
-/* styles/globals.css */
 .logo {
-  font-size: 2rem;
-  font-weight: 600;
-  background: linear-gradient(90deg, #1f68f9 0%, #333230 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  position: relative;
-  animation: fadeIn 1.5s ease-in-out;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+
+  background: linear-gradient(135deg, #1638c2, #046ad0);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+.dark .logo {
+  background: linear-gradient(135deg, #1638c2, #046ad0);
 }
 
+.logo svg {
+  width: 60%;
+  height: 60%;
+}
+
+.logo text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  fill: #ffffff;
+}
 
 /* global.css */
 nav {
