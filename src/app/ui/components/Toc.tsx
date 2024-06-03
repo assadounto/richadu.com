@@ -18,6 +18,7 @@ interface HeadingProps {
 const slugifyText = (text: string) => slugify(text, { lower: true, strict: true });
 
 const TableOfContents: React.FC<HeadingProps> = ({ headings }) => {
+    console.log(headings)
     const [activeId, setActiveId] = useState<string>('');
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [isHidden, setIsHidden] = useState<boolean>(false);
@@ -115,7 +116,9 @@ const TableOfContents: React.FC<HeadingProps> = ({ headings }) => {
                                                 >
                                                     <a
                                                         href={`#${anchor}`}
-                                                        className={`flex items-center space-x-2 hover:text-blue-500 dark:hover:text-blue-300 ${activeId === anchor ? 'font-semibold' : 'font-normal'
+
+
+                                                        className={`${heading.level === 'h3' ? 'ml-[20px] ' : 'font500'} flex items-center space-x-2 hover:text-blue-500 dark:hover:text-blue-300 ${activeId === anchor ? 'font-semibold' : 'font-normal'
                                                             }`}
                                                         onClick={() => setIsOpen(false)}
                                                     >
@@ -150,7 +153,7 @@ const TableOfContents: React.FC<HeadingProps> = ({ headings }) => {
                             >
                                 <a
                                     href={`#${anchor}`}
-                                    className={`flex items-center space-x-2 hover:text-blue-500 ${activeId === anchor ? 'font-semibold' : 'dark:text-gray-300 font-normal'}`}
+                                    className={`${heading.level === 'h3' ? 'ml-[20px] ' :'font500'}  flex items-center space-x-2 hover:text-blue-500 ${activeId === anchor ? 'font-semibold' : 'dark:text-gray-300 font-normal'}`}
                                 >
                                     <span>{heading.text}</span>
                                 </a>

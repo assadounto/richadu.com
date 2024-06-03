@@ -5,13 +5,14 @@ import "./globals.css";
 import { ThemeProvider } from "@/provider/themeProvider";
 import NavBar from "./ui/nav/nav";
 import Footer from "./ui/footer/footer";
-
+import Head from "next/head";
 
 const poppins = Inter({ weight: ["100", '200', '300', '400', '500', '600', '700', '800', '900'], subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'Richmond Portfolio',
   description: 'Showcasing my projects and blog posts.',
+ 
 };
 
 export default function RootLayout({
@@ -21,7 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} p-5 dark:bg-dark  dark:text-white`}>
+     
+            <body className={`${poppins.className} p-5 dark:bg-dark  dark:text-white`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

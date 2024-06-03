@@ -41,44 +41,12 @@ body {
 
 
 
-
-
-
-
-/* styles.css */
-
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-
-  background: linear-gradient(135deg, #1638c2, #046ad0);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
+.scroll-offset {
+  scroll-margin-top: 100px;
+  /* Adjust this value to the height of your nav bar */
 }
 
-.logo:hover {
-  transform: scale(1.1);
-}
 
-.dark .logo {
-  background: linear-gradient(135deg, #1638c2, #046ad0);
-}
-
-.logo svg {
-  width: 60%;
-  height: 60%;
-}
-
-.logo text {
-  font-family: 'Roboto', sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  fill: #ffffff;
-}
 
 /* global.css */
 nav {

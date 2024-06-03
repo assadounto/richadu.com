@@ -57,11 +57,11 @@ export const Markdown: MDXComponents = {
     },
     h2: ({ children }) => {
         const id = createId(children);
-        return <Heading type="h2" id={id} className="my-6 text-gray-700">{children}</Heading>; {/* removed redundant margin */ }
+        return <Heading type="h2" id={id} className="scroll-offset my-6 text-gray-700">{children}</Heading>; {/* removed redundant margin */ }
     },
     h3: ({ children }) => {
         const id = createId(children);
-        return <Heading type="h3" id={id} className="text-[26px] text-gray-600 my-6">{children}</Heading>;
+        return <Heading type="h3" id={id} className="scroll-offset text-[26px] text-gray-600 my-6">{children}</Heading>;
     },
     p: ({ children }) => {
         return <p className="text-gray-600 dark:text-gray-400 mb-6">{children}</p>; {/* adjusted margin */ }
