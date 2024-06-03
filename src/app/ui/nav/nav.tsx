@@ -4,42 +4,46 @@ import { DiGithubBadge } from 'react-icons/di';
 import ThemeToggle from '../components/themeToggle';
 import Logo from '../components/logo';
 
-
 const navLinks = [
     {
-        lable: 'Portfolio',
+        label: 'Portfolio',
         link: '/projects',
     },
     {
-        lable: 'Blog',
+        label: 'Blog',
         link: '/blog',
     },
     {
-        lable: 'Services',
+        label: 'Services',
         link: '#',
     },
-]
-
+];
 
 const NavBar: React.FC = () => {
     return (
-        <nav className="h-[70px] top-0 left-0 fixed w-full items-center backdrop-blur-md  dark:backdrop-blur-1 md:backdrop-blur inset-x-0 top-0 px-8 border-b flex justify-between border-gray-200 dark:border-gray-600  dark:bg-dark z-50">
+        <nav className="h-[70px] fixed top-0 left-0 w-full flex items-center justify-between backdrop-blur-md bg-white/30 dark:bg-dark/30 border-b border-gray-200 dark:border-gray-600 px-8 z-50">
             <div>
-                <Link href="/" className="hidden md:block animate-pulse" id="logo"><Logo/></Link>
+                <Link href="/" passHref>
+                    <span className="hidden md:block" id="logo">
+                        <Logo />
+                    </span>
+                </Link>
             </div>
             <div>
                 <ul className="flex items-center justify-end space-x-4">
-                    {
-                        navLinks.map((navlink,id) => {
-                            return (
-                                <li key={id}>
-                                    <Link href={navlink.link} className="text-link dark:text-white  font500  hover:text-sky-500 dark:hover:text-sky-400">{navlink.lable}</Link>
-                                </li>
-                            )
-                        })
-                    }
+                    {navLinks.map((navlink, id) => (
+                        <li key={id}>
+                            <Link href={navlink.link} passHref>
+                                <span className="text-link dark:text-white font500 hover:text-sky-500 dark:hover:text-sky-400">
+                                    {navlink.label}
+                                </span>
+                            </Link>
+                        </li>
+                    ))}
                     <li>
-                        <DiGithubBadge name='Github Link' role='link' size={28} />
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="Github Link">
+                            <DiGithubBadge size={28} />
+                        </a>
                     </li>
                     <li>
                         <ThemeToggle />

@@ -29,9 +29,9 @@ const BlogIndexPage = async () => {
             {/* Blog Posts Section */}
             <div>
                 <Heading type="h3">All Blog Posts</Heading>
-                <ul className="flex flex-wrap my-6 -mx-2">
+                <ul className="flex flex-wrap my-3 -mx-2">
                     {posts.map(post => (
-                        <li key={`/blog/`} className="w-full md:w-1/2 lg:w-1/3 py-5 my-16 px-5 mb-4">
+                        <li key={`/blog/`} className="w-full md:w-1/2 lg:w-1/3 py-5 px-5 mb-0">
                             <BlogPostCard {...post} />
                         </li>
                     ))}

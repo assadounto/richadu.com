@@ -59,3 +59,30 @@ body {
 
 /* styles/globals.css */
 /* styles/globals.css */
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  position: relative;
+  animation: fadeIn 1.5s ease-in-out;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

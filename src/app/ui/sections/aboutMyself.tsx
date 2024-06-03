@@ -23,7 +23,7 @@ const AboutMyself: React.FC = () => {
             <section>
                 <Heading type='h2' className="text-3xl font-bold mb-4">Let&apos;s Connect</Heading>
                 <SocialIcons />
-                <Button className='my-8'>Download my resume</Button>
+                <Button href='/resume' className='my-8'>Download my resume</Button>
             </section>
         </div>
     );

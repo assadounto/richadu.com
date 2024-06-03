@@ -5,9 +5,9 @@ import ProjectCard from '../cards/ProjectCard';
 import Button from '../components/Button';
 import { getProjects } from '@/lib/projects';
 
-const FeaturedProjects: React.FC = async() => {
+const FeaturedProjects: React.FC = async () => {
 
-    const projects=await getProjects()
+    const projects = await getProjects()
 
     return (
         <section
@@ -20,22 +20,22 @@ const FeaturedProjects: React.FC = async() => {
                     Some of the projects I am proud of
                 </p>
                 <ul className="flex flex-wrap -mx-2">
-                    {projects.slice(0,3).map((project, index) => (
-                         <li key={index} className="w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
-                        <ProjectCard
-                            key={index}
-                          {...project}
+                    {projects.slice(0, 3).map((project, index) => (
+                        <li key={index} className="w-full md:w-1/2 lg:w-1/3 px-2 mb-10">
+                            <ProjectCard
+                                key={index}
+                                {...project}
 
-                        />
+                            />
                         </li>
                     ))}
                 </ul>
                 <div className="p-4 self-start flex items-center mt-6">
-                    <Button>See more →</Button>
+                    <Button href='/projects'>See more projects →</Button>
                 </div>
-                </div>
+            </div>
 
-            
+
         </section>
     );
 };

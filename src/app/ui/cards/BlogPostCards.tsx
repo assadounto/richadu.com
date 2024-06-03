@@ -21,7 +21,6 @@ const BlogPostCard: React.FC<Post> = ({
 }) => {
 
 
-
     return (
         <div className="dark:bg-gray-900 dark:border shadow-md rounded-lg overflow-hidden">
             <Link href={link}>

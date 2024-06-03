@@ -18,10 +18,10 @@ const CategoryPage = async ({ params }: { params: { category: string } }) => {
 
     return (
         <div className="w-[90%]  mx-auto mt-10 mb-16" >
-            <Heading type="h2" className="text-3xl font-bold my-20">{category.toUpperCase()} PROJECTS</Heading>
+            <Heading type="h2" className="text-3xl font-bold my-10">{category.toUpperCase()} PROJECTS</Heading>
             <ul className="flex flex-wrap my-10 -mx-2">
                 {projects.map(project => (
-                    <li key={project.slug} className="w-full md:w-1/2 lg:w-1/3 py-5 my-16 px-5 mb-4">
+                    <li key={project.slug} className="w-full md:w-1/2 lg:w-1/3 py-5 my-10 px-5 mb-4">
                         <ProjectCard {...project} />
                     </li>
                 ))}
