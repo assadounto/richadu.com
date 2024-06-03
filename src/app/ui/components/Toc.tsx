@@ -89,10 +89,10 @@ const TableOfContents: React.FC<HeadingProps> = ({ headings }) => {
 
             <Transition appear show={isOpen}>
                 <Dialog as="div" onClose={() => setIsOpen(false)} className="relative z-10 focus:outline-none">
-                    <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
-                    <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+                    <div className="fixed inset-0 bg-black/30 dark:bg-white/30" aria-hidden="true" />
+                    <div className=" fixed inset-0 z-10 w-screen overflow-y-auto">
                         <div className="flex min-h-full items-center justify-center p-4">
-                            <TransitionChild
+                            <Transition.Child
                                 enter="ease-out duration-300"
                                 enterFrom="opacity-0 transform-[scale(95%)]"
                                 enterTo="opacity-100 transform-[scale(100%)]"
@@ -100,21 +100,23 @@ const TableOfContents: React.FC<HeadingProps> = ({ headings }) => {
                                 leaveFrom="opacity-100 transform-[scale(100%)]"
                                 leaveTo="opacity-0 transform-[scale(95%)]"
                             >
-                                <DialogPanel className="w-full max-w-md rounded-xl bg-white/5 p-6 backdrop-blur-2xl">
-                                    <DialogTitle as="h3" className="text-base/7 font-medium text-white">
+                                <Dialog.Panel className="w-full max-w-md rounded-xl bg-white dark:bg-gray-800 p-6 backdrop-blur-2xl">
+                                    <Dialog.Title as="h3" className="text-base font-medium text-gray-900 dark:text-white">
                                         Table of Contents
-                                    </DialogTitle>
+                                    </Dialog.Title>
                                     <ul className="space-y-4 mt-4">
                                         {headings.map((heading) => {
                                             const anchor = slugifyText(heading.text);
                                             return (
                                                 <li
                                                     key={heading.text}
-                                                    className={`transition-colors duration-300 ${activeId === anchor ? 'text-blue-600' : 'text-gray-700'}`}
+                                                    className={`transition-colors duration-300 ${activeId === anchor ? 'text-blue-600 dark:text-blue-400' : 'text-gray-700 dark:text-gray-300'
+                                                        }`}
                                                 >
                                                     <a
                                                         href={`#${anchor}`}
-                                                        className={`flex items-center space-x-2 hover:text-blue-500 ${activeId === anchor ? 'font-semibold' : 'dark:text-gray-300 font-normal'}`}
+                                                        className={`flex items-center space-x-2 hover:text-blue-500 dark:hover:text-blue-300 ${activeId === anchor ? 'font-semibold' : 'font-normal'
+                                                            }`}
                                                         onClick={() => setIsOpen(false)}
                                                     >
                                                         <span>{heading.text}</span>
@@ -125,12 +127,12 @@ const TableOfContents: React.FC<HeadingProps> = ({ headings }) => {
                                     </ul>
                                     <button
                                         onClick={() => setIsOpen(false)}
-                                        className="mt-6 text-blue-600 font-semibold"
+                                        className="mt-6 text-blue-600 dark:text-blue-400 font-semibold"
                                     >
                                         Close
                                     </button>
-                                </DialogPanel>
-                            </TransitionChild>
+                                </Dialog.Panel>
+                            </Transition.Child>
                         </div>
                     </div>
                 </Dialog>
