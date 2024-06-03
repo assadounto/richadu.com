@@ -11,7 +11,7 @@ const FeaturedProjects: React.FC = async () => {
 
     return (
         <section
-            className={`flex justify-center lg:items-center flex-col pt-8 mt-5 bg-blue w-full`}
+            className={`flex justify-center lg:items-center flex-col  bg-blue w-full`}
             id="featured"
         >
             <div className="lg:w-[90%]  p-4">

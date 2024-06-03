@@ -8,7 +8,7 @@ import SocialIcons from "../components/Scials";
 
 const Introductions: React.FC = () => {
     return (
-        <article className="layout mt-[80px]  lg:mt-[150px] flex flex-col md:items-center md:justify-center p-4">
+        <article className="layout mb-[-100px]  min-h-screen lg:mt-[0px] flex flex-col md:items-center items-start  justify-center p-4">
             <Heading type="h3" className="text-2xl md:text-4xl 2xl:text-5xl" data-fade="1">Hi!</Heading>
             <Heading type="h1" className="mt-1 text-3xl md:text-5xl 2xl:text-6xl" data-fade="2">
                 You can call me <span className="transition-colors bg-gradient-to-tr from-primary-300/40 via-primary-300/40 to-primary-400/40 dark:from-primary-300 dark:text-link dark:bg-clip-text dark:text-primay">Richmond</span>

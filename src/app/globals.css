@@ -12,7 +12,7 @@
 
 
 body {
-  font-family: 'Poppins', sans-serif;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 .font500 {
@@ -42,15 +42,6 @@ body {
 
 
 
-.light {
-  --grid-color: var(--grid-color-light);
-  --paper-color: var(--paper-color-light);
-}
-
-.dark {
-  --grid-color: var(--grid-color-dark);
-  --paper-color: var(--paper-color-dark);
-}
 
 
 
@@ -60,10 +51,9 @@ body {
 /* styles/globals.css */
 /* styles/globals.css */
 .logo {
-  font-family: 'Poppins', sans-serif;
   font-size: 2rem;
   font-weight: 600;
-  background: linear-gradient(135deg, #3498db, #2980b9);
+  background: linear-gradient(90deg, #1f68f9 0%, #333230 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;

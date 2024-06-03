@@ -18,6 +18,10 @@ const NavBar: React.FC = () => {
                     <span className="hidden md:block" id="logo">
                         <Logo />
                     </span >
+                    <Link href={'/'} className="md:hidden text-link dark:text-white font800 hover:text-sky-500 dark:hover:text-sky-400" id="logo">
+                        Home
+                    </Link >
+
                 </Link>
             </div>
             <div>
@@ -25,7 +29,7 @@ const NavBar: React.FC = () => {
                     {navLinks.map((navlink, id) => (
                         <li key={id}>
                             <Link href={navlink.link} passHref>
-                                <span className="text-link dark:text-white font500 hover:text-sky-500 dark:hover:text-sky-400">
+                                <span className="text-link dark:text-white font700 hover:text-sky-500 dark:hover:text-sky-400">
                                     {navlink.label}
                                 </span>
                             </Link>

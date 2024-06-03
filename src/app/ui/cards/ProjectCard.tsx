@@ -17,7 +17,7 @@ const ProjectCard: React.FC<Project> = ({
     githubUrl,
 }) => {
     return (
-        <div className="dark:border-[0.5px] dark:bg-gray-900 shadow-md rounded-lg overflow-hidden">
+        <div className="dark:border-[0.5px] transform transition-transform duration-300 hover:-translate-y-2 dark:bg-gray-900 shadow-md rounded-lg overflow-hidden">
             <div className="relative">
                 <Link href={link}>
                     <span>
