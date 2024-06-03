@@ -21,15 +21,15 @@ const Footer: React.FC = () => {
                         <Link href="/blog">
                             <span className="hover:text-gray-600 cursor-pointer">Blog</span>
                         </Link>
-                        <Link href="/contact">
-                            <span className="hover:text-gray-600 cursor-pointer">Contact</span>
+                        <Link href="/projects">
+                            <span className="hover:text-gray-600 cursor-pointer">Portfolio</span>
                         </Link>
                     </nav>
                 </div>
                 <SocialIcons />
             </div>
             <div className="mt-8 dark:text-white text-center text-gray-600 text-sm">
-                &copy; {new Date().getFullYear()} Made with love.
+                &copy; {new Date().getFullYear()} Made with love <span className="text-red-500 uppercase">❤</span> by {'Richmond Adu-kyere'}
             </div>
         </footer>
     );

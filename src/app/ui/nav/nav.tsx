@@ -12,30 +12,27 @@ const navLinks = [
 
 const NavBar: React.FC = () => {
     return (
-        <nav className="h-[70px] fixed top-0 left-0 w-full flex items-center justify-between bg-white bg-opacity-70 dark:bg-dark dark:bg-opacity-70 border-b border-gray-200 dark:border-gray-600 px-8 z-50">
-            <ul className="flex items-center justify-end space-x-4">
-                {navLinks.map((navlink, id) => (
-                    <li key={id}>
-                        <Link href={navlink.link} passHref>
-                            <span className="text-link dark:text-white font700 hover:text-sky-500 dark:hover:text-sky-400">
-                                {navlink.label}
-                            </span>
-                        </Link>
-                    </li>
-                ))}
-            </ul>
+        <nav className="h-[70px] fixed top-0 left-0 w-full flex items-center justify-between bg-white bg-opacity-70 dark:bg-dark dark:bg-opacity-70 border-b border-gray-200 dark:border-gray-600 px-4 z-50">
+            <div>
+                <Link href="/" passHref>
+                    <span className="" id="logo">
+                        <Logo />
+                    </span >
+                   
+                </Link>
+            </div>
             <div>
                 <ul className="flex items-center justify-end space-x-4">
-                    <li>
-                        <a
-                            href="https://github.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Github Link"
-                        >
-                            <DiGithubBadge size={28} />
-                        </a>
-                    </li>
+                    {navLinks.map((navlink, id) => (
+                        <li key={id}>
+                            <Link href={navlink.link} passHref>
+                                <span className="text-link dark:text-white font500 hover:text-sky-500 dark:hover:text-sky-400">
+                                    {navlink.label}
+                                </span>
+                            </Link>
+                        </li>
+                    ))}
+                    
                     <li>
                         <ThemeToggle />
                     </li>

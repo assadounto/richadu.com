@@ -10,9 +10,13 @@ const ThemeToggle: React.FC = () => {
         <button
         name='Theme'
         role='option'
+        aria-label='Theme'
+        aria-expanded='false'
+        
+        
         aria-selected
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="p-2"
+            className="p-2 rounded-lg border"
         >
             {theme === 'dark' ? <CiLight size={25} /> : <CiDark size={25} />}
         </button>
