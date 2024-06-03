@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/provider/themeProvider";
 import NavBar from "./ui/nav/nav";
 import Footer from "./ui/footer/footer";
 
+
 const poppins = Inter({ weight: ["100", '200', '300', '400', '500', '600', '700', '800', '900'], subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ export default function RootLayout({
         >
           <NavBar />
           <main className="pt-[60px]"> {/* Adjust the padding to match NavBar height */}
+        
             {children}
           </main>
           <Footer/>
@@ -37,3 +39,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+

@@ -17,14 +17,14 @@ const FeaturedPosts: React.FC<FeaturedPostsProps> = ({ posts }) => {
                 <Heading   className='text-right my-10' type="h2">Featured Posts</Heading>
                 <ul className="flex flex-wrap -mx-2">
                     {posts.slice(0,3).map((post, index) => (
-                        <li key={index} className="w-full md:w-1/2 lg:w-1/3 px-2 mb-4">
+                        <li key={index} className="w-full md:w-1/2 lg:w-1/3 px-2 mb-10">
                             <BlogCard {...post} />
                         </li>
                     ))}
                 </ul>
             </div>
             <div className="lg:mr-16 p-4 self-end flex items-center mt-6">
-                <Button>See more →</Button>
+                <Button href='/blog'>See more →</Button>
             </div>
         </section>
     );
