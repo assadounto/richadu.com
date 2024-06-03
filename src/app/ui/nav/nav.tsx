@@ -12,7 +12,7 @@ const navLinks = [
 
 const NavBar: React.FC = () => {
     return (
-        <nav className="h-[70px] fixed top-0 left-0 w-full flex items-center justify-between bg-white bg-opacity-70 dark:bg-dark dark:bg-opacity-70 border-b border-gray-200 dark:border-gray-600 px-8 z-50">
+        <nav className="h-[70px] fixed top-0 left-0 w-full flex items-center  justify-between dark:bg-dark dark:bg-opacity-70 border-b border-gray-200 dark:border-gray-600 px-8 z-50">
             <div>
                 <Link href="/" passHref>
                     <span className="hidden md:block" id="logo">
