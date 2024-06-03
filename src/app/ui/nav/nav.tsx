@@ -5,28 +5,19 @@ import ThemeToggle from '../components/themeToggle';
 import Logo from '../components/logo';
 
 const navLinks = [
-    {
-        label: 'Portfolio',
-        link: '/projects',
-    },
-    {
-        label: 'Blog',
-        link: '/blog',
-    },
-    {
-        label: 'Services',
-        link: '#',
-    },
+    { label: 'Portfolio', link: '/projects' },
+    { label: 'Blog', link: '/blog' },
+    { label: 'Services', link: '#' },
 ];
 
 const NavBar: React.FC = () => {
     return (
-        <nav className="h-[70px] fixed top-0 left-0 w-full flex items-center justify-between backdrop-blur-md bg-white/30 dark:bg-dark/30 border-b border-gray-200 dark:border-gray-600 px-8 z-50">
+        <nav className="h-[70px] fixed top-0 left-0 w-full flex items-center justify-between bg-white bg-opacity-70 dark:bg-dark dark:bg-opacity-70 border-b border-gray-200 dark:border-gray-600 px-8 z-50">
             <div>
                 <Link href="/" passHref>
                     <span className="hidden md:block" id="logo">
                         <Logo />
-                    </span>
+                    </span >
                 </Link>
             </div>
             <div>
@@ -41,7 +32,12 @@ const NavBar: React.FC = () => {
                         </li>
                     ))}
                     <li>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="Github Link">
+                        <a
+                            href="https://github.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Github Link"
+                        >
                             <DiGithubBadge size={28} />
                         </a>
                     </li>
