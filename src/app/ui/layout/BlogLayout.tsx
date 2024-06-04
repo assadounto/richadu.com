@@ -22,7 +22,7 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({ children, post }) => {
             <section className="flex-wrap mb-8">
 
                 <div className="w-full">
-                    <Image src={post.cover} alt={post.title} width={600} height={400} className="w-full h-[400px] mb-4 md:mb-0" />
+                    <Image src={post.cover} objectFit='contain' alt={post.title} width={600} height={400} className="w-full h-[400px] object-contain mb-4 md:mb-0" />
                 </div>
                 <div className="w-full border-b flex mt-5 flex-col p-4 ">
                     <div className=''>

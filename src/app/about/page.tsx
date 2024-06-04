@@ -8,11 +8,11 @@ import Certifications from '../ui/sections/certificates';
 
 const About: React.FC = () => {
     return (
-        <section className="p-8 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white">
+        <section className="p-8  text-gray-900 dark:text-white">
             <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-               <AboutMyself/>
-             
-                <div className='border rounded p-4'>
+                <AboutMyself />
+
+                <div className='md:mt-[250px]  rounded p-4'>
                     <SectionWithBubbles title="Languages">
                         <SkillItem icon="JavaScript" name="JavaScript" />
                         <SkillItem icon="HTML" name="HTML" />
@@ -28,8 +28,13 @@ const About: React.FC = () => {
                         <SkillItem icon="Database" name="Database Management" />
                         <SkillItem icon="Scripting" name="Scripting" />
                     </SectionWithBubbles>
+                    <SectionWithBubbles title="Prototyping">
+                        <SkillItem icon="Database" name="Database Management" />
+                        <SkillItem icon="Scripting" name="Scripting" />
+                    </SectionWithBubbles>
+
                 </div>
-             
+
             </div>
             <Certifications />
         </section>

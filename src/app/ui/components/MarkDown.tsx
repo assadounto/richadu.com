@@ -87,5 +87,31 @@ export const Markdown: MDXComponents = {
             </li>
         );
     },
-    YouTube: ({ link }) => <YouTube link={link}  />, 
+    strong: ({ children, ...props }) => {
+        return (
+            <strong {...props} className="text-blue-500 font-bold dark:text-gray-300">
+                {children}
+            </strong>
+        );
+    },
+    em: ({ children, ...props }) => {
+        return (
+            <em {...props} className="italic text-gray-700 dark:text-gray-300">
+                {children}
+            </em>
+        );
+    },
+    blockquote: ({ children, ...props }) => {
+        return (
+            <blockquote {...props} className="border-l-4 border-gray-300 pl-4 italic text-gray-600 dark:text-gray-400 my-6">
+                {children}
+            </blockquote>
+        );
+    },
+    hr: ({ ...props }) => {
+        return (
+            <hr {...props} className="border-t-2 border-gray-300 my-6" />
+        );
+    },
+    YouTube: ({ link }) => <YouTube link={link} />,
 };
