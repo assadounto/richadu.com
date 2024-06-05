@@ -25,7 +25,7 @@ const ProjectLayout: React.FC<ProjectLayoutProps> = ({ children, project }) => {
                         alt={project.title}
                         width={700}
                         height={400}
-                        className="w-full h-auto mb-4 md:mb-0 rounded-lg shadow-lg"
+                        className="w-full h-[400px] object-contain mb-4 md:mb-0 rounded-lg shadow-lg"
                     />
                 </div>
                 <div className="w-full md:w-1/3 md:pl-6 flex flex-col justify-between">

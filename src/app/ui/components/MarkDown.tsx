@@ -27,7 +27,7 @@ export const Markdown: MDXComponents = {
                 alt={alt || ''}
                 width={600}
                 height={300}
-                className="max-w-full h-auto my-6" // added margin
+                className="max-w-full object-contain h-[600px] my-6" // added margin
             />
         );
     },

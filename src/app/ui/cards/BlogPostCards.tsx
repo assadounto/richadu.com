@@ -1,4 +1,3 @@
-// components/BlogPostCard.tsx
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -24,15 +23,17 @@ const BlogPostCard: React.FC<Post> = ({
             <Link href={link}>
                 <div className="cursor-pointer">
                     <article>
-                        <Image src={cover} alt={title} width={600} height={300} className="w-full object-cover" />
+                        <div className="relative  h-[200px]">
+                            <Image src={cover} alt={title} layout="fill" objectFit="cover" className="rounded-t-lg" />
+                        </div>
                         <div className="p-4">
                             <Tags tags={tags} />
                             <Heading type='h3' className="text-lg text-blue-600 mb-2">{title}</Heading>
-                            <p className="dark:text-gray-300 text-gray-600 mb-4">{description}</p>
+                            <p className="dark:text-gray-300 text-gray-600 mb-4 overflow-hidden overflow-ellipsis">{description}</p>
                             <div className="flex justify-between items-center text-gray-500 text-sm">
                                 <div className="flex items-center">
                                     <FaRegClock className="mr-1 dark:text-white text-blue-600" />
-                                    <span className='font500 text-blue-600'>{readTime}</span>
+                                    <span className='font500 text-blue-600'>{readTime} min</span>
                                 </div>
                                 <div className="flex items-center">
                                     <FaRegEye className="mr-1 dark:text-white text-blue-600" />

@@ -1,0 +1,257 @@
+---
+author: Richmond Adu-kyere
+title: Real-Time Chat Application 
+date: '1999-05-20'
+description: With React Native and Firebase.
+category: React-Native
+cover: /images/blog/react-native/react-native.png
+views: 62
+likes: 8
+readTime: 8
+tags: React Native
+---
+
+# Building a Real-Time Chat Application with React Native and Firebase
+
+Real-time chat applications are a cornerstone of modern communication, enabling users to connect instantly. In this tutorial, we will build a real-time chat application using **React Native** and **Firebase**. This guide will walk you through setting up the project, integrating Firebase, and implementing real-time messaging.
+
+## Step 1: Project Setup
+
+### Prerequisites
+
+Before we start, ensure you have the following installed:
+- Node.js
+- npm or yarn
+- React Native CLI or Expo CLI
+
+### Initialize the Project
+
+First, create a new React Native project. You can use either the React Native CLI or Expo CLI. For this tutorial, we'll use Expo for its simplicity.
+
+```bash
+expo init react-native-chat-app
+cd react-native-chat-app
+```
+Next, install the required dependencies:
+
+```bash
+expo install firebase
+npm install @react-navigation/native @react-navigation/stack
+expo install react-native-gesture-handler react-native-reanimated
+
+```
+
+## Step 2: Firebase Setup
+
+Create a Firebase Project
+1. Go to the Firebase Console.
+2. Click "Add project" and follow the steps to create a new project.
+3. In the project dashboard, add a new web app to get your Firebase configuration.
+4. Configure Firebase in Your App
+5. Create a firebase.js file in your project root and add the following code:
+
+```bash
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+
+const firebaseConfig = {
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+export { db, auth };
+
+```
+
+## Step 3: Implement Navigation
+
+Create a **navigation** folder and add **AppNavigator.js**:
+
+```javascript
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import ChatScreen from '../screens/ChatScreen';
+import LoginScreen from '../screens/LoginScreen';
+
+const Stack = createStackNavigator();
+
+const AppNavigator = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Chat" component={ChatScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default AppNavigator;
+```
+
+## Step 4: Build the Login Screen
+
+Create a **screens** folder and add **LoginScreen.js**:
+
+```javascript
+import React, { useState } from 'react';
+import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { auth } from '../firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+
+const LoginScreen = ({ navigation }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigation.navigate('Chat');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <TextInput
+        placeholder="Email"
+        value={email}
+        onChangeText={setEmail}
+        style={styles.input}
+      />
+      <TextInput
+        placeholder="Password"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+        style={styles.input}
+      />
+      <Button title="Login" onPress={handleLogin} />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 16,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 12,
+    paddingHorizontal: 8,
+  },
+});
+
+export default LoginScreen;
+```
+
+## Step 5: Build the Chat Screen
+
+Add **ChatScreen.js** in the **screens** folder and put following code:
+
+```javascript
+import React, { useState, useEffect } from 'react';
+import { View, TextInput, Button, FlatList, Text, StyleSheet } from 'react-native';
+import { db, auth } from '../firebase';
+import { collection, addDoc, query, onSnapshot } from 'firebase/firestore';
+
+const ChatScreen = () => {
+  const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    const q = query(collection(db, 'messages'));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const messages = [];
+      querySnapshot.forEach((doc) => {
+        messages.push({ id: doc.id, ...doc.data() });
+      });
+      setMessages(messages);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const handleSend = async () => {
+    if (message.trim()) {
+      await addDoc(collection(db, 'messages'), {
+        text: message,
+        createdAt: new Date(),
+        uid: auth.currentUser.uid,
+      });
+      setMessage('');
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <FlatList
+        data={messages}
+        renderItem={({ item }) => (
+          <View style={styles.message}>
+            <Text>{item.text}</Text>
+          </View>
+        )}
+        keyExtractor={(item) => item.id}
+      />
+      <TextInput
+        value={message}
+        onChangeText={setMessage}
+        placeholder="Type a message"
+        style={styles.input}
+      />
+      <Button title="Send" onPress={handleSend} />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-between',
+    padding: 16,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    paddingHorizontal: 8,
+  },
+  message: {
+    padding: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: 'gray',
+  },
+});
+
+export default ChatScreen;
+```
+
+## Step 6: Running the Application
+
+To run your application, use the following command:
+
+```javascript
+expo start
+```
+
+Open the app on your device or simulator. You should be able to log in, send messages, and see them in real-time.
+
+## Conclusion
+In this tutorial, we've built a real-time chat application using React Native and Firebase. We covered setting up a React Native project, configuring Firebase, implementing authentication, and real-time messaging. This is a solid foundation for building more advanced features into your chat application.
+Feel free to extend this project by adding user profiles, message timestamps, and more!

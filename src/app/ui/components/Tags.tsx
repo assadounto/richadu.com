@@ -7,8 +7,8 @@ interface TagsProps {
 
 const Tags: React.FC<TagsProps> = ({ tags }) => {
     return (
-        <div className="flex mt-4 flex-wrap items-center space-x-2 mb-4">
-            <BsTags className="dark:text-gray-300 text-gray-600 mr-2" />
+        <div className="flex mt-4  gap-2 flex-wrap items-center  mb-4">
+            <BsTags className="dark:text-gray-300text-gray-600 mr-2" />
             {tags?.split(',').map((tag: string) => (
                 <span
                     key={tag.trim()}

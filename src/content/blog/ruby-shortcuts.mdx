@@ -1,0 +1,177 @@
+---
+author: Richmond Adu-kyere
+title: Useful Ruby Shortcuts
+date: '2022-05-20'
+description: Every Developer Should Know
+category: ruby
+cover: /images/metric.png
+views: 62
+likes: 8
+readTime: 8
+tags: ruby
+---
+
+
+# Useful Ruby Shortcuts Every Developer Should Know
+
+Ruby is known for its simplicity and readability, but did you know there are many shortcuts and convenient features that can make your code more concise and expressive? In this blog post, we'll explore some of the most useful Ruby shortcuts that every developer should know.
+
+## 1. Ternary Operator
+
+The ternary operator (**condition ? true_value : false_value**) allows you to write simple conditional statements in a single line. For example:
+
+```ruby
+age = 20
+puts age >= 18 ? "You are an adult" : "You are a minor"
+```
+
+## 2. Safe Navigation Operator
+
+The safe navigation operator (**&.**) is used to safely call methods on potentially **nil** objects without raising an error. It's especially useful when dealing with nested objects. For example:
+
+```ruby
+user = User.find_by(id: 1)
+puts user&.address&.city
+```
+
+## 3. Parallel Assignment
+
+Ruby allows you to assign multiple variables in a single line using parallel assignment. For example:
+
+```ruby
+x, y, z = 1, 2, 3
+```
+
+## 4. Range Creation
+
+You can create ranges of sequential numbers or characters using the range operator (**..** for inclusive ranges and **...** for exclusive ranges). For example:
+
+```ruby
+numbers = 1..5
+letters = 'a'...'e'
+```
+
+## 5. Symbol to Proc
+
+Ruby's symbol-to-proc syntax (**&:symbol**) allows you to convert a method call into a block. It's commonly used with enumerable methods like **map**, **select**, and **reduce**. For example:
+
+```ruby
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = numbers.map(&:square)
+```
+
+## 6. Enumerable Methods
+
+Ruby's enumerable module provides powerful methods like **map**, **select**, **reject**, **reduce**, etc., which allow you to manipulate collections with ease. For example:
+
+```ruby
+numbers = [1, 2, 3, 4, 5]
+total = numbers.reduce(0, :+)
+```
+
+## 7. String Interpolation
+
+String interpolation allows you to embed Ruby expressions within strings. For example:
+
+```ruby
+name = "Alice"
+puts "Hello, #{name}!"
+```
+
+## 8. Method Chaining
+
+Ruby allows you to chain method calls together, which can lead to more readable and expressive code. For example:
+
+```ruby
+result = numbers.map(&:square).select(&:even?)
+```
+
+## 9. Blocks and Procs
+
+Blocks and procs are anonymous functions in Ruby that can be passed around as arguments to methods. They are commonly used for defining custom behaviors. For example:
+
+```ruby
+my_proc = Proc.new { |x| x * 2 }
+result = numbers.map(&my_proc)
+```
+
+## 10. Default Values with Hashes
+
+You can use default values for hash keys using the **Hash#fetch** method, which allows you to provide a default value if the key is not found. For example:
+
+```ruby
+options = { color: 'blue' }
+puts options.fetch(:size, 'medium') # Outputs: medium
+```
+
+## 11. Enumerable#find
+
+The **find** method in Ruby's **Enumerable** module allows you to search for the first element in a collection that matches a given condition. For example:
+
+```ruby
+numbers = [1, 2, 3, 4, 5]
+puts numbers.find { |n| n.even? } # Outputs: 2
+```
+
+## 12. Hash  dig
+
+The **dig** method in Ruby's **Hash** class allows you to safely navigate nested hashes without raising errors. For example:
+
+```ruby
+data = { user: { name: 'Alice', age: 30 } }
+puts data.dig(:user, :name) # Outputs: Alice
+```
+
+## 13. Inheritance with super
+
+You can use the **super** keyword in a subclass to call the superclass's implementation of a method. This is useful for extending functionality while retaining the original behavior. For example:
+
+```ruby
+class Parent
+  def hello
+    puts "Hello from Parent"
+  end
+end
+
+class Child < Parent
+  def hello
+    super
+    puts "Hello from Child"
+  end
+end
+
+Child.new.hello
+# Outputs:
+# Hello from Parent
+# Hello from Child
+```
+
+## 14. respond_to? Method
+
+The **respond_to?** method in Ruby allows you to check if an object responds to a specific method. This can be useful for handling cases where methods may or may not be defined. For example:
+
+```ruby
+object = SomeClass.new
+if object.respond_to?(:some_method)
+  object.some_method
+else
+  puts "Method not available"
+end
+```
+
+## 15. Named Arguments
+
+Ruby supports named arguments in method calls, allowing you to specify arguments by their names rather than their positions. This can improve code readability, especially for methods with many parameters. For example:
+
+```ruby
+def greet(name:, age:)
+  puts "Hello, #{name}! You are #{age} years old."
+end
+
+greet(name: 'Alice', age: 30)
+# Outputs: Hello, Alice! You are 30 years old.
+```
+
+## Conclusion
+
+These are just a few of the many shortcuts and convenient features available in Ruby. By incorporating these into your code, you can write more concise and expressive Ruby programs. Experiment with them and discover even more ways to improve your Ruby coding experience!
