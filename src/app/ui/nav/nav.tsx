@@ -7,7 +7,6 @@ import Logo from '../components/logo';
 const navLinks = [
     { label: 'Portfolio', link: '/projects' },
     { label: 'Blog', link: '/blog' },
-    { label: 'Services', link: '#' },
 ];
 
 const NavBar: React.FC = () => {
