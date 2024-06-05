@@ -66,6 +66,7 @@ const ProjectLayout: React.FC<ProjectLayoutProps> = ({ children, project }) => {
                     </div>
                     <div className="mt-4">
                         <ViewsAndLikes
+                            type='project'
                             slug={project.slug}
                             initialViews={project.views}
                             initialLikes={project.likes}

@@ -1,15 +1,18 @@
-'use client'
+'use client';
+
+import { updatePostViews, updateProjectViews, incrementPostLikes, incrementProjectLikes } from '@/services';
 import React, { useEffect, useState, useRef } from 'react';
-import { FaEye, FaThumbsUp } from 'react-icons/fa';
-import { SlLike } from "react-icons/sl";
-import { TbEye } from "react-icons/tb";
+import { SlLike } from 'react-icons/sl';
+import { TbEye } from 'react-icons/tb';
+
 interface ViewsAndLikesProps {
     slug: string;
+    type: 'project' | 'post';
     initialViews: number;
     initialLikes: number;
 }
 
-const ViewsAndLikes: React.FC<ViewsAndLikesProps> = ({ slug, initialViews, initialLikes }) => {
+const ViewsAndLikes: React.FC<ViewsAndLikesProps> = ({ slug, initialViews, initialLikes, type }) => {
     const [views, setViews] = useState(initialViews);
     const [likes, setLikes] = useState(initialLikes);
     const hasFetchedViews = useRef(false);
@@ -22,24 +25,30 @@ const ViewsAndLikes: React.FC<ViewsAndLikesProps> = ({ slug, initialViews, initi
 
         async function updateViews() {
             try {
-                const response = await fetch(`/api/update-views?slug=${slug}`, { method: 'POST' });
-                const data = await response.json();
-                setViews(data.views);
+                if (type === 'project') {
+                    await updateProjectViews(slug);
+                } else if (type === 'post') {
+                    await updatePostViews(slug);
+                }
+                setViews((prev) => prev + 1); // Increment local views count
             } catch (error) {
-                console.error("Error updating views:", error);
+                console.error('Error updating views:', error);
             }
         }
 
         updateViews();
-    }, [slug]);
+    }, [slug, type]);
 
     const handleLike = async () => {
         try {
-            const response = await fetch(`/api/update-likes?slug=${slug}`, { method: 'POST' });
-            const data = await response.json();
-            setLikes(data.likes);
+            if (type === 'project') {
+                await incrementProjectLikes(slug);
+            } else if (type === 'post') {
+                await incrementPostLikes(slug);
+            }
+            setLikes((prev) => prev + 1); // Increment local likes count
         } catch (error) {
-            console.error("Error updating likes:", error);
+            console.error('Error updating likes:', error);
         }
     };
 

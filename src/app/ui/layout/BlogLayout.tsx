@@ -28,15 +28,23 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({ children, post }) => {
                     <div className=''>
                         <Heading type='h2' className="text-gray-800 mb-2">{post.title}</Heading>
                         <p className="text-gray-600 dark:text-white ">Written by {post.author} on {formatDate(post.date)}</p>
-                        <div className="flex dark:text-white items-center space-x-4">
+                        <div className="flex flex-wrap dark:text-white items-center space-x-4">
                             <span className="text-gray-600 dark:text-white flex items-center">
                                 <WiTime7 className="mr-2 dark:text-white text-gray-600" />
                                 {post.readTime}mins read
                             </span>
                             <Tags tags={post.tags} />
-                            <TbEye className="dark:text-white text-sm" />
-                            <span className="text-sm">{post.views}</span>
+
+
                         </div>
+                       
+                            <ViewsAndLikes
+                                type='post'
+                                slug={post.slug}
+                                initialViews={post.views}
+                                initialLikes={post.likes}
+                            />
+
                     </div>
 
                 </div>
