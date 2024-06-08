@@ -24,6 +24,9 @@ const Footer: React.FC = () => {
                         <Link href="/projects">
                             <span className="hover:text-gray-600 cursor-pointer">Portfolio</span>
                         </Link>
+                        <Link href="/resume.pdf">
+                            <span className="hover:text-gray-600 cursor-pointer">Resume</span>
+                        </Link>
                     </nav>
                 </div>
                 <SocialIcons />
