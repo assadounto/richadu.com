@@ -12,7 +12,6 @@ const poppins = Inter({ weight: ["100", '200', '300', '400', '500', '600', '700'
 export const metadata: Metadata = {
   title: 'Richmond Portfolio',
   description: 'Showcasing my projects and blog posts.',
- 
 };
 
 export default function RootLayout({
