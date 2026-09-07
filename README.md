@@ -1,104 +1,66 @@
-# Richmond Adu's Portfolio
+<div align="center">
 
-Welcome to the repository for Richmond Adu's personal portfolio website. This site showcases my projects, skills, and professional journey.
+# Richmond Adu-Kyere — Portfolio
 
-## Table of Contents
+### Full-Stack & Mobile Software Engineer • Electrical/Electronics Engineer • IoT Builder
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [Contact](#contact)
-- [License](#license)
+Personal portfolio showcasing my software, mobile, product, and engineering work.
 
-## Introduction
+[Live Portfolio](https://richadu-com.vercel.app/) · [GitHub](https://github.com/assadounto) · [LinkedIn](https://www.linkedin.com/in/richmond-adu-kyere-911693236)
 
-This is the source code for my personal portfolio website, built to display my work and professional background. You can view the live site [here](https://richadu-com.vercel.app/).
+</div>
 
-## Features
+---
 
-- **Project Showcase**: Display of my key projects with descriptions and links.
-- **Responsive Design**: Optimized for various devices and screen sizes.
-- **Contact Form**: Allows visitors to get in touch with me directly.
-- **Interactive UI**: Smooth navigation and interactive elements.
+## About
 
-## Technologies Used
+This repository contains the source code for my personal portfolio website. It presents selected projects, technical skills, and my work across software engineering and electrical/electronics systems.
 
-- **Next.js**: Framework for server-rendered React applications.
-- **Tailwind CSS**: Utility-first CSS framework for styling.
-- **TypeScript**: Typed JavaScript for better development experience.
-- **pnpm**: Fast, disk space-efficient package manager.
-- **Vercel**: Deployment and hosting platform.
+The site is built with a modern frontend stack and deployed on Vercel.
 
-## Getting Started
+## Tech Stack
 
-To get a local copy up and running, follow these steps.
+- Next.js
+- TypeScript
+- Tailwind CSS
+- pnpm
+- Vercel
 
-### Prerequisites
+## Highlights
 
-Make sure you have the following installed:
+- Responsive portfolio experience
+- Project showcase
+- Skills and professional background
+- Contact experience
+- Interactive UI
+- Production deployment on Vercel
 
-- Node.js (>= 12.x)
-- pnpm (>= 6.x)
+## Local Development
 
-### Installation
+```bash
+git clone https://github.com/assadounto/richadu.com.git
+cd richadu.com
+pnpm install
+pnpm dev
+```
 
-1. **Clone the repository:**
+Open `http://localhost:3000`.
 
-    ```bash
-    git clone https://github.com/yourusername/portfolio.git
-    cd portfolio
-    ```
+For a production build:
 
-2. **Install dependencies:**
+```bash
+pnpm build
+pnpm start
+```
 
-    ```bash
-    pnpm install
-    ```
+## Author
 
-### Usage
+**Richmond Adu-Kyere**
 
-1. **Run the development server:**
+Full-Stack & Mobile Software Engineer  
+Electrical/Electronics Engineer  
+IoT & Product Builder
 
-    ```bash
-    pnpm dev
-    ```
-
-2. **Open the app in your browser:**
-
-    Navigate to `http://localhost:3000`. The page will reload if you make edits.
-
-3. **Build for production:**
-
-    ```bash
-    pnpm build
-    pnpm start
-    ```
-
-## Contributing
-
-Contributions are welcome! Please fork this repository and submit a pull request for any feature requests or bug fixes.
-
-### Steps to Contribute
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -m 'Add some feature'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Open a pull request.
-
-Feel free to use this project as a template for your own portfolio or other personal projects.
-
-## Contact
-
-Richmond Adu - [richmondadu@example.com](mailto:richmondadu@example.com)
-
-You can view more of my work at [richadu-com.vercel.app](https://richadu-com.vercel.app/).
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- GitHub: [@assadounto](https://github.com/assadounto)
+- LinkedIn: [Richmond Adu-Kyere](https://www.linkedin.com/in/richmond-adu-kyere-911693236)
+- Email: adukyerer@gmail.com
